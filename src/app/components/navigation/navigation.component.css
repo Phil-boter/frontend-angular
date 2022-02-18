@@ -5,7 +5,6 @@ nav {
     min-height: 8vh;
     font-family: 'Poppins', sans-serif;
     background-color: gray;
-    width: 100vw;
 }
 
 .logo {
@@ -18,7 +17,6 @@ nav {
 .nav-links {
     display: flex;
     justify-content: space-around;
-    width: 40%;
 }
 
 .nav-links li {
@@ -123,11 +121,11 @@ nav {
 }
 
 .toggle .line1 {
-      transform: rotate(-45deg) translate(-5px, 6px);
+        transform: rotate(-45deg) translate(-5px, 6px);
 }
 .toggle .line2 {
-      opacity: 0;
+        opacity: 0;
 }
 .toggle .line3 {
-     transform: rotate(45deg) translate(-5px, -6px); 
+        transform: rotate(45deg) translate(-5px, -6px); 
 }
