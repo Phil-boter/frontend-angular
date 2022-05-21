@@ -19,12 +19,8 @@ export class ProjectService {
       ) {}
 
     getAllProjects(): Observable<Project[]> {
-       return this.http.get<{payload: Project[]}>(`${this.baseURL}/api/`)
+       return this.http.get<{payload: Project[]}>(`${this.baseURL}/v1/projects/allProjects`)
        .pipe(catchError(this.errorService.errorHandler)) 
        .pipe(map(response=> response.payload));
 	}
-  
-
 }
-
-

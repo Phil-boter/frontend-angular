@@ -1,4 +1,7 @@
-import { Component, EventEmitter, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, QueryList, ElementRef, ViewChildren } from '@angular/core';
+
+import { Subscription } from "rxjs";
+import { ResizeService } from 'src/app/services/resizeService/resize.service';
 
 @Component({
   	selector: 'app-navigation',
@@ -7,42 +10,30 @@ import { Component, EventEmitter, OnInit, Input } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+	public isMobile:boolean = false;
+
 	title:string = "The Nav";
+	private windowWidth!:number;
+    public navigationIsOpen: boolean = false;
+    public resizeSubscription: Subscription = new Subscription
 
- 	@Input() navSlider = new EventEmitter();
+  	constructor(private resizeService: ResizeService) { }
 
-  	constructor() { }
-
-  	ngOnInit(): void {
-  	}
+  	ngOnInit(): void {}
+	ngDoCheck() {
+		this.isMobile = this.resizeService.isMobile();
+	}
     
-  	openNavigation (e:Event){
-      	const burger =  document.querySelector('.burger');
-		const nav = document.querySelector('.nav-links');
-		const navLinks = document.querySelectorAll('.nav-links li');
-		nav?.classList.toggle('nav-active');
-		//animation links
-		navLinks.forEach((elm:any, index: number) => {
-				if(!elm) {
-					elm.style.animation = '';
-				} else {  
-					elm.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
-				}
-			});
-			 // burger animation
-			burger?.classList.toggle('toggle');		
+
+
+  	public openNavigation (){
+        this.navigationIsOpen = true;
 	}
 	
+	public closeNavigation () {
+		this.navigationIsOpen = false;	
+	}
 
-	closeNavigation (e:Event) {
-		const nav = document.querySelector('.nav-links');
-		const navLinks = document.querySelectorAll('.nav-links li');
-		nav?.classList.remove('nav-active')
-		navLinks.forEach((elm:any, index: number) => {
-			    setTimeout(()=> {
-					elm.style.animation = '';
-				}, 500)		
-		});
-		
+	ngOnDestroy() {
 	}
 }

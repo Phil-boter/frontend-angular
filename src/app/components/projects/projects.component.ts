@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { subscribeOn } from 'rxjs';
 import { Project } from 'src/app/interfaces/Projects';
 import { ErrorService } from 'src/app/services/errorService/error.service';
@@ -27,4 +27,8 @@ export class ProjectsComponent implements OnInit {
 			this.projects = data
 		})
   	}
+
+	onDestroy() {
+		this.projectService.getAllProjects().subscribe();
+	}
 }

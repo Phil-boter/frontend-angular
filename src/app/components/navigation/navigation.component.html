@@ -1,24 +1,27 @@
-<nav>
-    <div class="logo">
-        <h4 class>{{title.toUpperCase()}}</h4>         
-    </div>
-        <ul class="nav-links">
-            <li (click)="closeNavigation($event)">
-                <a href="#">Home</a>
-             </li>
-            <li (click)="closeNavigation($event)">
-                <a href="#">Work</a>
-             </li>
-            <li (click)="closeNavigation($event)">
-                <a href="#">Projects</a>
-             </li>
-            <li (click)="closeNavigation($event)">
-                <a href="#">Links</a>
-            </li>
+<div style="height: 100vh;">
+      <div>
+      <span>Responsive Navigation</span>
+  
+      <span class="example-spacer"></span>
+  
+      <div *ngIf="!isMobile">
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a routerLink="*" >About</a>
+        <a routerLink="*" class="nav-links">Contact</a>
+        <a routerLink="/Projects" class="nav-links">Projects</a>
+      </div>
+
+
+      <div *ngIf="isMobile">
+        <div class="burger">
+          <p (click)="openNavigation()" *ngIf="!navigationIsOpen">Show</p>
+          <p (click)="closeNavigation()" *ngIf="navigationIsOpen">Close</p>
+        </div>
+        <ul class="nav-links" *ngIf="navigationIsOpen">
+          <li><a routerLink="*">About</a></li>
+          <li><a routerLink="*" >Contact</a></li>
+          <li><a routerLink="/Projects" >Projects</a></li>
         </ul>
-        <div class="burger" (click)="openNavigation($event)">
-             <div class="line1"></div>
-             <div class="line2"></div>
-             <div class="line3"></div>
-        </div>     
- </nav>
+      </div>
+    </div>
+  </div> 
