@@ -1,4 +1,4 @@
-<div style="height: 100vh;">
+<div>
       <div>
       <span>Responsive Navigation</span>
   
@@ -18,9 +18,9 @@
           <p (click)="closeNavigation()" *ngIf="navigationIsOpen">Close</p>
         </div>
         <ul class="nav-links" *ngIf="navigationIsOpen">
-          <li><a routerLink="*">About</a></li>
-          <li><a routerLink="*" >Contact</a></li>
-          <li><a routerLink="/Projects" >Projects</a></li>
+          <li><a routerLink="/" (click)="closeNavigation()">About</a></li>
+          <li><a routerLink="/" (click)="closeNavigation()">Contact</a></li>
+          <li><a routerLink="/project" (click)="closeNavigation()">Projects</a></li>
         </ul>
       </div>
     </div>

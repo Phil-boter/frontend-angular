@@ -8,12 +8,14 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    ProjectPageComponent
   ],
   imports: [
     BrowserModule,

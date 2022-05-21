@@ -1,6 +1,5 @@
 <div>
-    <ul *ngFor="let project of projects">
+    <ul *ngFor="let project of projects, let i = index">
        <li>{{project.title}}</li>
     </ul>
 </div>
-<p>{{error}}</p>

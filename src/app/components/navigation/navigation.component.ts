@@ -24,13 +24,13 @@ export class NavigationComponent implements OnInit {
 		this.isMobile = this.resizeService.isMobile();
 	}
     
-
-
   	public openNavigation (){
+		console.log("open");
         this.navigationIsOpen = true;
 	}
 	
 	public closeNavigation () {
+		console.log("closew");
 		this.navigationIsOpen = false;	
 	}
 
