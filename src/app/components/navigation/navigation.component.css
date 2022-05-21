@@ -1,0 +1,72 @@
+.main-header-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0.4rem;
+    background: black;
+    height: 3rem;
+}
+
+.main-header {
+    font-size: 2rem;
+    color: white;
+}
+
+/* -------------------  Mobile --------------------- */
+.nav-mobile-container {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    opacity: 10;
+}
+
+.nav-links-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+    max-width: 450px;
+    height: 70px;
+}
+
+.nav-links-mobile a {
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    height: 100%;
+}
+.mobile1 {
+    background-color: hotpink;
+}
+.mobile2 {
+    background-color: rgb(95, 188, 219);
+}
+.mobile3 {
+    background-color: rgb(87, 158, 59);
+}
+.mobile4 {
+    background-color: rgb(255, 255, 89);
+}
+.mobile5 {
+    background-color: tomato;
+}
+
+/* ------------------------- desktp ----------------------------- */
+.nav-desktop-container {
+    position: absolute;
+    top: 0;
+    left: 2.9rem;
+    width: calc(100vw - 3rem);
+    background: black;
+    height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2rem;
+}
+.nav-desktop-container a {
+    color: white;
+    margin: 0 1rem;
+}
