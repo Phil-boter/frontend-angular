@@ -10,6 +10,7 @@ export class ErrorService {
   	constructor() { }
 
   	public errorHandler(error:any) {
+		  console.log("erro")
 		let errorMessage = '';
 		if(error.error instanceof ErrorEvent) {
 			errorMessage = error.error.message;
