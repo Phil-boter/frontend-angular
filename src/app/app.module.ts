@@ -10,6 +10,7 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProjectPageComponent } from './pages/projectPage/projectPage.component'
       positionClass: 'toast-top-center',
       preventDuplicates: true,
       newestOnTop: true
-    })
+    }),
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

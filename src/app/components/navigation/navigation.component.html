@@ -1,26 +1,88 @@
 <div class="main-header-container">
     <h1 class="main-header">PD</h1>
+    <div class="burger-container">
+        <span
+            class="navigation-burger"
+            (click)="openNavigation()"
+            *ngIf="!isMobile && !navigationIsOpen"
+        >
+            <div class="bar1"></div>
+            <div class="bar3"></div>
+            <div class="bar3"></div>
+        </span>
+
+        <span
+            class="navigation-burger"
+            (click)="closeNavigation()"
+            *ngIf="!isMobile && navigationIsOpen"
+        >
+            <div [class.moveBurger1]="navigationIsOpen" class="bar1"></div>
+            <div [class.moveBurger2]="navigationIsOpen" class="bar2"></div>
+            <div [class.moveBurger3]="navigationIsOpen" class="bar3"></div>
+        </span>
+    </div>
 </div>
 
-<div *ngIf="!isMobile" class="nav-desktop-container">
+<div
+    *ngIf="!isMobile && navigationIsOpen"
+    class="nav-desktop-container"
+    [class.active1]="navigationIsOpen"
+>
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-    <a routerLink="/">About</a>
-    <a routerLink="/">Email</a>
-    <a routerLink="/">Home</a>
-    <a routerLink="/">Contact</a>
+
+    <a routerLink="/">home</a>
+    <a routerLink="/">about</a>
+    <a routerLink="/">contact</a>
+    <a routerLink="/">email</a>
     <a routerLink="/project">Projects</a>
 </div>
 
 <div *ngIf="isMobile" class="nav-mobile-container">
-    <!-- <div class="burger">
-        <p (click)="openNavigation()" *ngIf="!navigationIsOpen">Show</p>
-        <p (click)="closeNavigation()" *ngIf="navigationIsOpen">Close</p>
-    </div> -->
     <div class="nav-links-mobile">
-        <a routerLink="/" class="mobile1">home</a>
-        <a routerLink="/" class="mobile2">About</a>
-        <a routerLink="/" class="mobile3">Contact</a>
-        <a routerLink="/" class="mobile4">Email</a>
-        <a routerLink="/project" class="mobile5">Projects</a>
+        <div class="mobile-navigation-button">
+            <a routerLink="/" class="mobile-navigation-button mobile1"
+                ><ion-icon
+                    size="large"
+                    name="home-outline"
+                    src="../../../assets/home-outline.svg"
+                ></ion-icon
+            ></a>
+        </div>
+        <div class="mobile-navigation-button">
+            <a routerLink="/" class="mobile-navigation-button mobile2"
+                ><ion-icon
+                    size="large"
+                    name="person-circle-outline"
+                    src="../../../assets/person-circle-outline.svg"
+                ></ion-icon
+            ></a>
+        </div>
+        <div class="mobile-navigation-button">
+            <a routerLink="/" class="mobile-navigation-button mobile3"
+                ><ion-icon
+                    size="large"
+                    name="chatbubbles-outline"
+                    src="../../../assets/chatbubbles-outline.svg"
+                ></ion-icon
+            ></a>
+        </div>
+        <div class="mobile-navigation-button">
+            <a routerLink="/" class="mobile-navigation-button mobile4"
+                ><ion-icon
+                    size="large"
+                    name="paper-plane-outline"
+                    src="../../../assets/paper-plane-outline.svg"
+                ></ion-icon
+            ></a>
+        </div>
+        <div class="mobile-navigation-button">
+            <a routerLink="/project" class="mobile-navigation-button mobile5"
+                ><ion-icon
+                    size="large"
+                    name="terminal-outline"
+                    src="../../../assets/terminal-outline.svg"
+                ></ion-icon
+            ></a>
+        </div>
     </div>
 </div>
