@@ -3,7 +3,7 @@
     <div class="burger-container">
         <span
             class="navigation-burger"
-            (click)="openNavigation()"
+            (click)="open()"
             *ngIf="!isMobile && !navigationIsOpen"
         >
             <div class="bar1"></div>
@@ -13,7 +13,7 @@
 
         <span
             class="navigation-burger"
-            (click)="closeNavigation()"
+            (click)="close()"
             *ngIf="!isMobile && navigationIsOpen"
         >
             <div [class.moveBurger1]="navigationIsOpen" class="bar1"></div>
@@ -30,57 +30,27 @@
 >
     <!-- The following menu items will be hidden on both SM and XS screen sizes -->
 
-    <a routerLink="/">home</a>
-    <a routerLink="/">about</a>
-    <a routerLink="/">contact</a>
-    <a routerLink="/">email</a>
-    <a routerLink="/project">Projects</a>
+    <a
+        *ngFor="let link of navigationLinks; let i = index"
+        routerLink="{{ link.link }}"
+        (click)="close()"
+        >{{ link.title }}</a
+    >
 </div>
 
 <div *ngIf="isMobile" class="nav-mobile-container">
     <div class="nav-links-mobile">
-        <div class="mobile-navigation-button">
-            <a routerLink="/" class="mobile-navigation-button mobile1"
+        <div
+            class="mobile-navigation-button"
+            *ngFor="let link of navigationLinks; let i = index"
+        >
+            <a
+                routerLink="{{ link.link }}"
+                class="mobile-navigation-button mobile{{ link.id }}"
                 ><ion-icon
-                    size="large"
-                    name="home-outline"
-                    src="../../../assets/home-outline.svg"
-                ></ion-icon
-            ></a>
-        </div>
-        <div class="mobile-navigation-button">
-            <a routerLink="/" class="mobile-navigation-button mobile2"
-                ><ion-icon
-                    size="large"
-                    name="person-circle-outline"
-                    src="../../../assets/person-circle-outline.svg"
-                ></ion-icon
-            ></a>
-        </div>
-        <div class="mobile-navigation-button">
-            <a routerLink="/" class="mobile-navigation-button mobile3"
-                ><ion-icon
-                    size="large"
-                    name="chatbubbles-outline"
-                    src="../../../assets/chatbubbles-outline.svg"
-                ></ion-icon
-            ></a>
-        </div>
-        <div class="mobile-navigation-button">
-            <a routerLink="/" class="mobile-navigation-button mobile4"
-                ><ion-icon
-                    size="large"
-                    name="paper-plane-outline"
-                    src="../../../assets/paper-plane-outline.svg"
-                ></ion-icon
-            ></a>
-        </div>
-        <div class="mobile-navigation-button">
-            <a routerLink="/project" class="mobile-navigation-button mobile5"
-                ><ion-icon
-                    size="large"
-                    name="terminal-outline"
-                    src="../../../assets/terminal-outline.svg"
+                    size="{{ link.iconSize }}"
+                    name="{{ link.iconName }}"
+                    src="{{ link.iconSrc }}"
                 ></ion-icon
             ></a>
         </div>

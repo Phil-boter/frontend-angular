@@ -13,27 +13,27 @@ import { ProjectPageComponent } from './pages/projectPage/projectPage.component'
 import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    ProjectsComponent,
-    ProjectPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule, 
-    FlexLayoutModule, 
-    BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      timeOut: 5000,
-      positionClass: 'toast-top-center',
-      preventDuplicates: true,
-      newestOnTop: true
-    }),
-    IonicModule.forRoot()
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        NavigationComponent,
+        ProjectsComponent,
+        ProjectPageComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FlexLayoutModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot({
+            timeOut: 5000,
+            positionClass: 'toast-top-center',
+            preventDuplicates: true,
+            newestOnTop: true,
+        }),
+        IonicModule.forRoot(),
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
