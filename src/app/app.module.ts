@@ -11,9 +11,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
 import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/scroll-to-top-button/scroll-to-top-button.component';
+import { EmailPageComponent } from './pages/emailPage/email-page.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +24,7 @@ import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/sc
         ProjectsComponent,
         ProjectPageComponent,
         ScrollToTopButtonComponent,
+        EmailPageComponent,
     ],
     imports: [
         BrowserModule,
@@ -37,6 +40,7 @@ import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/sc
         }),
         IonicModule.forRoot(),
         MatProgressBarModule,
+        ReactiveFormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

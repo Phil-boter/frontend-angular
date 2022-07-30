@@ -14,7 +14,7 @@ export class ErrorService {
         } else {
             errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        this.toastService.showError('failed loading projects', 'Error');
+        this.toastService.showError(`${error}`, 'Error');
         throw new Error(errorMessage);
     }
 }

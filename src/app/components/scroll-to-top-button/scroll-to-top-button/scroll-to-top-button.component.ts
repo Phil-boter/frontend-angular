@@ -1,31 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { interval as observableInterval } from 'rxjs';
-import { takeWhile, scan, tap } from 'rxjs/operators';
+import {
+    Component,
+    HostListener,
+    ChangeDetectionStrategy,
+    Directive,
+    OnInit,
+    OnDestroy,
+} from '@angular/core';
+import { WindowScrollService } from 'src/app/services/windowScrollService/window-scroll.service';
+import { ViewportScroller } from '@angular/common';
+
 @Component({
     selector: 'app-scroll-to-top-button',
     templateUrl: './scroll-to-top-button.component.html',
     styleUrls: ['./scroll-to-top-button.component.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ScrollToTopButtonComponent implements OnInit {
-    public showButton: boolean = false;
+    constructor(
+        private windowScrolService: WindowScrollService,
+        private viewPortScroller: ViewportScroller
+    ) {}
 
-    constructor() {
-        //this.showButton = false;@Inject(DOCUMENT) private document: Document
-    }
-    ngOnInit(): void {
-        console.log('window');
+    ngOnInit() {
+        window.addEventListener('scroll', this.scroll, true);
     }
 
-    public scrollToTop(el: { scrollTop: number }) {
-        const duration = 600;
-        const interval = 5;
-        const move = (el.scrollTop * interval) / duration;
-        observableInterval(interval)
-            .pipe(
-                scan((acc, curr) => acc - move, el.scrollTop),
-                tap((position) => (el.scrollTop = position)),
-                takeWhile((val) => val > 0)
-            )
-            .subscribe();
+    scroll = (event: Event): void => {
+        const body = document.getElementById('body');
+        console.log(
+            'event'
+            // console.log(this.windowScrolService.updateScrollY())
+        );
+    };
+
+    ngOnDestroy() {
+        window.removeEventListener('scroll', this.scroll, true);
     }
 }
