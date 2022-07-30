@@ -12,12 +12,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
 import { IonicModule } from '@ionic/angular';
 
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/scroll-to-top-button/scroll-to-top-button.component';
+
 @NgModule({
     declarations: [
         AppComponent,
         NavigationComponent,
         ProjectsComponent,
         ProjectPageComponent,
+        ScrollToTopButtonComponent,
     ],
     imports: [
         BrowserModule,
@@ -32,6 +36,7 @@ import { IonicModule } from '@ionic/angular';
             newestOnTop: true,
         }),
         IonicModule.forRoot(),
+        MatProgressBarModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

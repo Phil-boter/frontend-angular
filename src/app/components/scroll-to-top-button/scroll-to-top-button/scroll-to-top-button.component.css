@@ -1,0 +1,5 @@
+button {
+    z-index: 10000000000;
+    margin: 3rem;
+    background-color: white;
+}

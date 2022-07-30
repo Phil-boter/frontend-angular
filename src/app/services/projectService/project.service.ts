@@ -23,10 +23,7 @@ export class ProjectService {
             const data = await this.restService.getAllProjects().toPromise();
             if (data && data.length > 0) {
                 console.log('data', data);
-                this.toastService.showInfo(
-                    'all projects are loaded',
-                    'Success'
-                );
+                this.toastService.showInfo('all projects are loaded', 'Info');
 
                 return data;
             } else {
