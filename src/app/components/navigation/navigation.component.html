@@ -1,20 +1,58 @@
-<div>
-    <div *ngIf="!isMobile" class="nav-desktop-container">
-        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-        <a routerLink="/" >About</a>
-        <a routerLink="/">Contact</a>
-        <a routerLink="/project">Projects</a>
-    </div>
+<div class="main-header-container" id="navigation-container">
+    <h1 class="main-header">PD</h1>
+    <div class="burger-container">
+        <span
+            class="navigation-burger"
+            (click)="open()"
+            *ngIf="!isMobile && !navigationIsOpen"
+        >
+            <div class="bar1"></div>
+            <div class="bar3"></div>
+            <div class="bar3"></div>
+        </span>
 
-    <div *ngIf="isMobile" class="nav-mobile-container">
-        <div class="burger">
-          	<p (click)="openNavigation()" *ngIf="!navigationIsOpen">Show</p>
-          	<p (click)="closeNavigation()" *ngIf="navigationIsOpen">Close</p>
-       	</div>
-        <ul class="nav-links" *ngIf="navigationIsOpen">
-          	<li><a routerLink="/" (click)="closeNavigation()">About</a></li>
-          	<li><a routerLink="/" (click)="closeNavigation()">Contact</a></li>
-          	<li><a routerLink="/project" (click)="closeNavigation()">Projects</a></li>
-        </ul>
+        <span
+            class="navigation-burger"
+            (click)="close()"
+            *ngIf="!isMobile && navigationIsOpen"
+        >
+            <div [class.moveBurger1]="navigationIsOpen" class="bar1"></div>
+            <div [class.moveBurger2]="navigationIsOpen" class="bar2"></div>
+            <div [class.moveBurger3]="navigationIsOpen" class="bar3"></div>
+        </span>
     </div>
-</div> 
+</div>
+
+<div
+    *ngIf="!isMobile && navigationIsOpen"
+    class="nav-desktop-container"
+    [class.active1]="navigationIsOpen"
+>
+    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+
+    <a
+        *ngFor="let link of navigationLinks; let i = index"
+        routerLink="{{ link.link }}"
+        (click)="close()"
+        >{{ link.title }}</a
+    >
+</div>
+
+<div *ngIf="isMobile" class="nav-mobile-container">
+    <div class="nav-links-mobile">
+        <div
+            class="mobile-navigation-button"
+            *ngFor="let link of navigationLinks; let i = index"
+        >
+            <a
+                routerLink="{{ link.link }}"
+                class="mobile-navigation-button mobile{{ link.id }}"
+                ><ion-icon
+                    size="{{ link.iconSize }}"
+                    name="{{ link.iconName }}"
+                    src="{{ link.iconSrc }}"
+                ></ion-icon
+            ></a>
+        </div>
+    </div>
+</div>

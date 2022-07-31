@@ -1,0 +1,191 @@
+.main-header-container {
+    position: absolute;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    left: 0;
+    top: 0;
+    padding: 0.4rem;
+    background: black;
+    height: 3rem;
+    z-index: 3;
+}
+
+.main-header {
+    font-size: 2rem;
+    color: white;
+}
+.main-header h1 {
+    padding: 0;
+    margin: 0;
+}
+
+/* -------------------  Mobile --------------------- */
+
+@media screen and (max-width) {
+    .main-header-container {
+        padding: 0;
+    }
+}
+.nav-mobile-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    opacity: 1;
+    z-index: 1;
+    background-color: var(--var-color_dark);
+}
+
+.nav-links-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+    max-width: 450px;
+    height: 70px;
+}
+.mobile-navigation-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 25%;
+    height: 100%;
+    color: black;
+}
+.mobile1 {
+    width: 100%;
+    background-color: var(--var-color_pink);
+}
+
+.mobile2 {
+    width: 100%;
+    background-color: var(--var-color_blue);
+}
+
+.mobile3 {
+    width: 100%;
+    background-color: rgb(81, 164, 81);
+}
+
+.mobile4 {
+    width: 100%;
+    background-color: rgb(255, 255, 89);
+}
+
+.mobile5 {
+    width: 100%;
+    background-color: rgb(255, 99, 71);
+}
+
+/* ------------------------- desktp ----------------------------- */
+.nav-desktop-container {
+    height: 50vh;
+    opacity: 1;
+    width: 30%;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: space-evenly;
+    justify-content: center;
+    transition: all 4s ease;
+    animation-name: bounce;
+    animation-fill-mode: both;
+    animation-duration: 0.9s;
+    border-radius: 0 0 30rem 0;
+}
+
+.nav-desktop-container.active {
+    background: var(--var-color_white);
+    opacity: 1;
+    width: 30%;
+    transition: all 3s ease-in-out;
+    align-content: center;
+    padding-right: 0px;
+}
+
+@keyframes bounce {
+    0% {
+        opacity: 0;
+        transform: translate(-1000px, -500px);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate(5px, 5px);
+    }
+
+    80% {
+        transform: translate(-10px, -10px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.nav-desktop-container a {
+    color: white;
+    margin: 0 1rem;
+    font-size: 2.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+.nav-desktop-container a:first-child {
+    padding-left: 14rem;
+}
+.nav-desktop-container a:nth-child(2) {
+    padding-left: 12.5rem;
+}
+.nav-desktop-container a:nth-child(3) {
+    padding-left: 8rem;
+}
+.nav-desktop-container a:nth-child(4) {
+    padding-left: 6.6rem;
+}
+.nav-desktop-container a:nth-child(5) {
+    padding-left: 1rem;
+}
+
+.burger-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 0.5rem 0 0;
+}
+
+.navigation-burger {
+    font-size: 2rem;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 2s ease;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--var-color_gray);
+    margin: 6px 0;
+    transition: 10s;
+    transition: all 2s ease;
+}
+
+.moveBurger1 {
+    transition: all 5s ease;
+    transform: rotate(45deg) translate(10.5px, 7.5px);
+}
+.moveBurger2 {
+    opacity: 0;
+}
+.moveBurger3 {
+    transform: rotate(-45deg) translate(7.5px, -5px);
+}

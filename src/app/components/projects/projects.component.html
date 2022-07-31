@@ -1,5 +1,16 @@
-<div>
-    <ul *ngFor="let project of projects, let i = index">
-       <li>{{project.title}}</li>
-    </ul>
+<mat-progress-bar
+    *ngIf="isLoading"
+    mode="indeterminate"
+    color="warn"
+    value="40"
+    class="progress-bar"
+></mat-progress-bar>
+<div class="main-container">
+    <div class="inner-container">
+        <ul *ngFor="let project of projects; let i = index">
+            <h1>{{ project.title }}</h1>
+            <p>{{ project.description_de }}</p>
+            <p>{{ project.technology_de }}</p>
+        </ul>
+    </div>
 </div>

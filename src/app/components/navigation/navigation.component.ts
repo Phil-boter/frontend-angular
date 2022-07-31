@@ -1,39 +1,63 @@
-import { Component, EventEmitter, OnInit, Input, QueryList, ElementRef, ViewChildren } from '@angular/core';
+import {
+    Component,
+    EventEmitter,
+    OnInit,
+    Input,
+    QueryList,
+    ElementRef,
+    ViewChildren,
+} from '@angular/core';
 
-import { Subscription } from "rxjs";
+import { Subscription } from 'rxjs';
+import {
+    NavigationLink,
+    NavigationService,
+} from 'src/app/services/navigationService/navigation.service';
 import { ResizeService } from 'src/app/services/resizeService/resize.service';
 
 @Component({
-  	selector: 'app-navigation',
-  	templateUrl: './navigation.component.html',
-  	styleUrls: ['./navigation.component.css']
+    selector: 'app-navigation',
+    templateUrl: './navigation.component.html',
+    styleUrls: ['./navigation.component.css'],
 })
 export class NavigationComponent implements OnInit {
+    public isMobile: boolean = false;
 
-	public isMobile:boolean = false;
-
-	title:string = "The Nav";
-	private windowWidth!:number;
+    public title: string = 'The Nav';
+    private windowWidth!: number;
     public navigationIsOpen: boolean = false;
-    public resizeSubscription: Subscription = new Subscription
+    public resizeSubscription: Subscription = new Subscription();
+    public navigationLinks: NavigationLink[] = [];
+    constructor(
+        private resizeService: ResizeService,
+        private navigationService: NavigationService
+    ) {}
 
-  	constructor(private resizeService: ResizeService) { }
+    ngOnInit(): void {
+        this.showNavigationLinks();
+    }
+    ngDoCheck() {
+        this.isMobile = this.resizeService.isMobile();
+    }
 
-  	ngOnInit(): void {}
-	ngDoCheck() {
-		this.isMobile = this.resizeService.isMobile();
-	}
-    
-  	public openNavigation (){
-		console.log("open");
-        this.navigationIsOpen = true;
-	}
-	
-	public closeNavigation () {
-		console.log("closew");
-		this.navigationIsOpen = false;	
-	}
+    public open(): void {
+        this.navigationIsOpen = this.navigationService.openNavigation();
+    }
 
-	ngOnDestroy() {
-	}
+    public close(): void {
+        this.navigationIsOpen = this.navigationService.closeNavigation();
+    }
+
+    private moveBurger() {
+        const animateNavigation = document.querySelector(
+            '.nav-desktop-container'
+        );
+    }
+
+    public showNavigationLinks(): void {
+        this.navigationLinks =
+            this.navigationService.provideNavigationLinkList();
+    }
+
+    ngOnDestroy() {}
 }
