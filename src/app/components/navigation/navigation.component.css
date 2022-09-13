@@ -7,14 +7,14 @@
     left: 0;
     top: 0;
     padding: 0.4rem;
-    background: black;
+    background: transparent;
     height: 3rem;
     z-index: 3;
 }
 
 .main-header {
     font-size: 2rem;
-    color: white;
+    color: var(--var-color_black);
 }
 .main-header h1 {
     padding: 0;
@@ -97,7 +97,15 @@
     animation-fill-mode: both;
     animation-duration: 0.9s;
     border-radius: 0 0 30rem 0;
+    box-shadow: 21px 8px 54px 12px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 21px 8px 54px 12px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 21px 8px 54px 12px rgba(0, 0, 0, 0.8);
 }
+/* .nav-desktop-container:active {
+    box-shadow: -11px -13px 29px -11px rgba(69, 69, 69, 0.65) inset;
+    -webkit-box-shadow: -11px -13px 29px -11px rgba(69, 69, 69, 0.65) inset;
+    -moz-box-shadow: -11px -13px 29px -11px rgba(69, 69, 69, 0.65) inset;
+} */
 
 .nav-desktop-container.active {
     background: var(--var-color_white);
@@ -173,7 +181,7 @@
 .bar3 {
     width: 35px;
     height: 5px;
-    background-color: var(--var-color_gray);
+    background-color: var(--var-color_black);
     margin: 6px 0;
     transition: 10s;
     transition: all 2s ease;

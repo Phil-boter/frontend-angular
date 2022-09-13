@@ -3,6 +3,7 @@ import { RestService } from '../restService/rest.service';
 import { Email } from 'src/app/pages/emailPage/email-page.component';
 import { ToastService } from '../toastService/toast.service';
 import { ErrorService } from '../errorService/error.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -14,7 +15,7 @@ export class EmailService {
         private errorService: ErrorService
     ) {}
 
-    public async sendEmail(data: Email) {
+    public async sendEmail(data: Email): Promise<void> {
         try {
             this.restService.sendEmail(data).subscribe((res) => {
                 if (res.success) {

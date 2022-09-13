@@ -7,6 +7,10 @@ import {
     NgForm,
 } from '@angular/forms';
 import { EmailService } from 'src/app/services/emailService/email.service';
+import { ModalController } from '@ionic/angular';
+import { EmailModalComponent } from 'src/app/components/emailModal/email-modal.component';
+import { OverlayEventDetail } from '@ionic/core';
+import { ModalService } from 'src/app/services/modalService/modal.service';
 
 export interface Email {
     from: string;
@@ -21,30 +25,15 @@ export interface Email {
     styleUrls: ['./email-page.component.css'],
 })
 export class EmailPageComponent implements OnInit {
-    FormData!: FormGroup;
+    public FormData!: FormGroup;
+    public isLoading: boolean = false;
+    private email!: Email;
 
-    constructor(
-        private builder: FormBuilder,
-        private emailService: EmailService
-    ) {}
+    constructor(private modalService: ModalService) {}
 
-    ngOnInit() {
-        this.createFormData();
-    }
+    ngOnInit() {}
 
-    private createFormData() {
-        this.FormData = this.builder.group({
-            from: new FormControl('', [Validators.required]),
-            subject: new FormControl('', [Validators.required]),
-            text: new FormControl('', [Validators.required]),
-            created_at: Date.now(),
-        });
-        console.log('form', this.FormData.valid);
-    }
-
-    onSubmit(data: Email): void {
-        console.log(data);
-        this.FormData.disabled;
-        this.emailService.sendEmail(data);
+    public async openEmailModal() {
+        this.modalService.openEmailModal();
     }
 }

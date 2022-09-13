@@ -16,6 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/scroll-to-top-button/scroll-to-top-button.component';
 import { EmailPageComponent } from './pages/emailPage/email-page.component';
+import { EmailModalComponent } from './components/emailModal/email-modal.component';
+import { HeadlineComponent } from './components/headline/headline/headline.component';
+import { IntesectionDirective } from './directives/intesection.directive';
 
 @NgModule({
     declarations: [
@@ -25,6 +28,9 @@ import { EmailPageComponent } from './pages/emailPage/email-page.component';
         ProjectPageComponent,
         ScrollToTopButtonComponent,
         EmailPageComponent,
+        EmailModalComponent,
+        HeadlineComponent,
+        IntesectionDirective,
     ],
     imports: [
         BrowserModule,

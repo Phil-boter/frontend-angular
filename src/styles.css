@@ -30,7 +30,7 @@ h1 {
     --var-color_white: white;
     --var-color_black: black;
     --var-color_projectHeader: rgb(0, 0, 0);
-    --var-color_darkgray: rgb(19, 19, 19);
+    --var-color_darkgray: rgb(83, 83, 83);
     --var-color_link: gold;
 }
 
@@ -44,9 +44,24 @@ h1 {
     justify-content: column;
     align-items: center;
     z-index: -1;
-    overflow-x: scroll;
+    background-color: rgba(0, 0, 0, 0);
 }
 
+.boxshadow-bottom {
+    box-shadow: 0px 5px 17px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 5px 17px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 17px 0px rgba(0, 0, 0, 0.75);
+}
+
+.boxshadow-top {
+    box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.75);
+}
+
+ion-modal {
+    --ion-background-color: transparent;
+}
 /* ______________________________     TOASTR-SECTION  START UNTIL LINE 213 __________________________________________________________ */
 
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
