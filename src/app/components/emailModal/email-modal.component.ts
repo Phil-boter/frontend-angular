@@ -8,7 +8,8 @@ import {
 } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { EmailService } from 'src/app/services/emailService/email.service';
-import { Email } from 'src/app/pages/emailPage/email-page.component';
+import { Email } from 'src/app/interfaces/email';
+import { ToastService } from 'src/app/services/toastService/toast.service';
 
 @Component({
     selector: 'app-email-modal',
@@ -21,7 +22,8 @@ export class EmailModalComponent implements OnInit {
     constructor(
         private builder: FormBuilder,
         private emailService: EmailService,
-        private modalCtrl: ModalController
+        private modalCtrl: ModalController,
+        private toastService: ToastService
     ) {}
 
     ngOnInit(): void {
@@ -41,11 +43,11 @@ export class EmailModalComponent implements OnInit {
     public onSubmit(data: any) {
         this.isLoading = true;
         this.FormData.disabled;
-        this.modalCtrl.dismiss({ data });
+        this.modalCtrl.dismiss({ data }, 'submit', 'emailModalComponent');
         this.isLoading = false;
     }
 
     public dismiss() {
-        this.modalCtrl.dismiss();
+        this.modalCtrl.dismiss(null, 'cancel', 'emailModalComponent');
     }
 }

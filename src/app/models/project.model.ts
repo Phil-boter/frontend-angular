@@ -9,7 +9,7 @@ export class ProjectModel {
     public technology_de: string;
     public technology_en: string;
     public main_image: string;
-    public images: [] = [];
+    public images;
     public link: string;
     public host: string;
     public created_at: Date;
@@ -42,7 +42,20 @@ export class ProjectModel {
         this.created_at = created_at;
     }
 
-    public get projectTitle(): string {
-        return this.projectTitle;
+    public static createProject(project: Project) {
+        return new ProjectModel(
+            project.id,
+            project.title,
+            project.title_second,
+            project.description_de,
+            project.description_en,
+            project.technology_de,
+            project.technology_en,
+            project.main_image,
+            project.images,
+            project.link,
+            project.host,
+            project.created_at
+        );
     }
 }

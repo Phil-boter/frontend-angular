@@ -36,13 +36,13 @@
         (click)="close()"
         >{{ link.title }}</a
     >
-    <p (click)="openEmailModal()">
+    <a (click)="openEmailModal()">
         <ion-icon
             size="large"
             name="paper-plane-outline"
             src="../../../assets/paper-plane-outline.svg"
         ></ion-icon>
-    </p>
+    </a>
 </div>
 
 <div *ngIf="isMobile" class="nav-mobile-container">

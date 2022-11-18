@@ -11,13 +11,7 @@ import { ModalController } from '@ionic/angular';
 import { EmailModalComponent } from 'src/app/components/emailModal/email-modal.component';
 import { OverlayEventDetail } from '@ionic/core';
 import { ModalService } from 'src/app/services/modalService/modal.service';
-
-export interface Email {
-    from: string;
-    subject: string;
-    text: string;
-    created_at: number;
-}
+import { Email } from 'src/app/interfaces/email';
 
 @Component({
     selector: 'app-email-page',

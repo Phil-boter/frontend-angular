@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { RestService } from '../restService/rest.service';
-import { Email } from 'src/app/pages/emailPage/email-page.component';
 import { ToastService } from '../toastService/toast.service';
 import { ErrorService } from '../errorService/error.service';
 import { Observable } from 'rxjs';
+import { Email } from 'src/app/interfaces/email';
+import { FormBuilder } from '@angular/forms';
 
 @Injectable({
     providedIn: 'root',

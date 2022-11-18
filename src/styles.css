@@ -9,6 +9,7 @@ html,
 body {
     height: 100%;
     background-color: var(--var-color_dark);
+    scrollbar-base-color: var(--var-color_darkgray);
 }
 
 body {
@@ -25,13 +26,33 @@ h1 {
     --var-color_pink: rgb(255, 94, 174);
     --var-color_dark: rgb(68, 68, 68);
     --var-color_gray: rgb(247, 247, 247);
-    --var-color_blue: rgb(138, 172, 236);
-    --var-color_green: rgb(2, 2, 43);
+    --var-color_blue: rgb(143, 178, 244);
+    --var-color_green: #51a351;
     --var-color_white: white;
     --var-color_black: black;
     --var-color_projectHeader: rgb(0, 0, 0);
     --var-color_darkgray: rgb(83, 83, 83);
     --var-color_link: gold;
+    --var-color_modal-header: rgb(23, 23, 23);
+    --var-color_button-inset: rgba(88, 88, 88, 0.84);
+}
+
+ion-modal {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.email-modal::part(content) {
+    background-color: var(--var-color_darkgray);
+    border-radius: 15px;
+}
+
+.modal-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+    align-items: center;
 }
 
 .main-container {
@@ -59,9 +80,6 @@ h1 {
     -moz-box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.75);
 }
 
-ion-modal {
-    --ion-background-color: transparent;
-}
 /* ______________________________     TOASTR-SECTION  START UNTIL LINE 213 __________________________________________________________ */
 
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
@@ -169,7 +187,7 @@ button.toast-close-button {
     background-position: 15px center;
     background-repeat: no-repeat;
     background-size: 24px;
-    box-shadow: 0 0 12px #999999;
+    box-shadow: 0 0 12px #000000 !important;
     color: #ffffff;
     font-family: "Montserrat", sans-serif;
 }
@@ -211,14 +229,14 @@ button.toast-close-button {
     pointer-events: auto;
 }
 .toast-success {
-    /* background-color: #51A351; */
+    /* background-color: #51a351; */
     background-color: black !important;
 }
 .toast-error {
     background-color: #bd362f;
 }
 .toast-info {
-    background-color: white !important;
+    background-color: white;
 }
 .toast-warning {
     background-color: #f89406;

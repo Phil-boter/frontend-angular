@@ -18,6 +18,7 @@ import {
     findIndex,
 } from 'rxjs';
 import { Project } from 'src/app/interfaces/Projects';
+import { ProjectModel } from 'src/app/models/project.model';
 
 import { ProjectService } from 'src/app/services/projectService/project.service';
 
@@ -27,11 +28,12 @@ import { ProjectService } from 'src/app/services/projectService/project.service'
     styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit, AfterViewChecked {
-    public projects?: Project[] = [];
+    public projects?: ProjectModel[] = [];
     public error = Subscription;
-    public isLoading: boolean = false;
+    private isLoading: boolean = false;
     public header: any = [];
     public observer!: IntersectionObserver;
+    public project?: ProjectModel;
 
     constructor(
         private projectService: ProjectService,
@@ -39,9 +41,9 @@ export class ProjectsComponent implements OnInit, AfterViewChecked {
     ) {}
 
     ngOnInit(): void {
-        console.log('projects comoponent');
-        this.loadProjects();
+        this.loadProjects().finally();
     }
+
     ngAfterViewChecked() {
         this.header = document.querySelectorAll('h2');
     }
@@ -77,6 +79,10 @@ export class ProjectsComponent implements OnInit, AfterViewChecked {
             });
             //entry.target.children[0].classList.add(`active`);
         }
+    }
+
+    public get loading() {
+        return this.isLoading;
     }
 
     // public animate() {

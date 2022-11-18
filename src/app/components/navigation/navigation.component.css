@@ -47,6 +47,7 @@
     width: 100vw;
     max-width: 450px;
     height: 70px;
+    cursor: pointer;
 }
 .mobile-navigation-button {
     display: flex;
@@ -69,7 +70,8 @@
 
 .mobile3 {
     width: 100%;
-    background-color: rgb(81, 164, 81);
+    /* background-color: rgb(81, 164, 81); */
+    background-color: var(--var-color_green);
 }
 
 .mobile4 {
@@ -142,6 +144,7 @@
     font-size: 2.5rem;
     text-decoration: none;
     white-space: nowrap;
+    cursor: pointer;
 }
 .nav-desktop-container a:first-child {
     padding-left: 14rem;

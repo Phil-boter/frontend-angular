@@ -4,7 +4,7 @@ import { Observable, map, catchError, retry, throwError } from 'rxjs';
 
 import { Project } from 'src/app/interfaces/Projects';
 import { ErrorService } from '../errorService/error.service';
-import { Email } from 'src/app/pages/emailPage/email-page.component';
+import { Email } from 'src/app/interfaces/email';
 
 @Injectable({
     providedIn: 'root',
@@ -31,7 +31,7 @@ export class RestService {
     public sendEmail(data: Email): Observable<any> {
         console.log(`${this.baseURL}/v1/email/sendEmail`, data);
         return this.http
-            .post<{ data: any }>(`${this.baseURL}/v1/email/sendEmail`, {
+            .post<{ data: Email }>(`${this.baseURL}/v1/email/sendEmail`, {
                 data,
             })
             .pipe(map((data) => data));

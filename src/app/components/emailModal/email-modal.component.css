@@ -3,28 +3,55 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 4rem;
 }
 
 .close-modal {
-    padding-left: 100%;
-    margin-top: -1rem;
-    z-index: 100;
-}
-
-.email-card-container {
+    width: 100%;
+    height: 30px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row-reverse;
     align-items: center;
-    padding: 1.5rem;
+    padding-right: 20px;
+    z-index: 100;
+    cursor: pointer;
+    background-color: var(--var-color_modal-header);
     box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
     -webkit-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
     -moz-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-    text-align: center;
-    background-color: var(--var-color_darkgray);
-    border-radius: 0.3rem;
-    z-index: 100 !important;
+}
+.close-modal:hover {
+    background-color: var(--var-color_black);
+}
+.close-modal:active {
+    box-shadow: 0px 0px 27px -5px var(--var-color_button-inset) inset;
+    -webkit-box-shadow: 0px 0px 27px -5px var(--var-color_button-inset) inset;
+    -moz-box-shadow: 0px 0px 27px -5px var(--var-color_button-inset) inset;
+}
+.cross-wrapper {
+    padding-top: 10px;
+}
+.cross1 {
+    width: 20px;
+    height: 4px;
+    background-color: var(--var-color_white);
+    border-radius: 2px;
+    margin: -8px 0;
+    rotate: -45deg;
+}
+.cross2 {
+    width: 20px;
+    height: 4px;
+    background-color: var(--var-color_white);
+    border-radius: 2px;
+    margin: 4px 0;
+    rotate: 45deg;
+}
+.email-form {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
 }
 
 .form-group {
@@ -33,10 +60,9 @@
     justify-content: center;
     align-items: center;
 }
-.form-group input,
-textarea {
-    color: black;
-    width: 18rem;
+.form-control {
+    color: var(--var-color_black);
+    width: 100%;
     line-height: 1.2rem;
     padding: 0.3rem;
     border-radius: 0.3rem;
@@ -44,18 +70,19 @@ textarea {
     -webkit-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
     -moz-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
 }
+.form-group textarea {
+    height: 18rem;
+}
+
 .form-group label {
     margin: 0.5rem;
 }
 
-.form-group textarea {
-    height: 8rem;
-}
 .email-button {
-    margin-top: 2rem;
+    margin: 2rem auto;
     width: 8rem;
     line-height: 2rem;
-    background-color: var(--var-color_black);
+    background-color: var(--var-color_modal-header);
     color: var(--var-color_white);
     border-radius: 0.3rem;
     box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
@@ -63,15 +90,14 @@ textarea {
     -moz-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
 }
 .email-button:active {
-    box-shadow: 0px 0px 27px -5px rgba(128, 128, 128, 0.84) inset;
-    -webkit-box-shadow: 0px 0px 27px -5px rgba(128, 128, 128, 0.84) inset;
-    -moz-box-shadow: 0px 0px 27px -5px rgba(128, 128, 128, 0.84) inset;
+    box-shadow: 0px 0px 27px -5px var(--var-color_button-inset) inset;
+    -webkit-box-shadow: 0px 0px 27px -5px var(--var-color_button-inset) inset;
+    -moz-box-shadow: 0px 0px 27px -5px var(--var-color_button-inset) inset;
+}
+.email-button:hover {
+    background-color: var(--var-color_black);
 }
 @media screen and (max-width: 780px) and (orientation: landscape) {
-    .email-card-container {
-        margin: 0rem 0.5rem;
-        max-height: 100vh;
-    }
     .email-button {
         margin-top: 1rem;
         width: 8rem;
@@ -92,58 +118,5 @@ textarea {
     .close-modal {
         padding-left: 100%;
         z-index: 100;
-    }
-
-    .email-card-container {
-        margin: 4rem 0.5rem;
-        padding: 1.5rem;
-        box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-        -webkit-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-        -moz-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-        text-align: center;
-        background-color: var(--var-color_darkgray);
-        border-radius: 0.3rem;
-        z-index: 100 !important;
-    }
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .form-group input,
-    textarea {
-        color: black;
-        width: 18rem;
-        line-height: 1.2rem;
-        padding: 0.3rem;
-        border-radius: 0.3rem;
-        box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-        -webkit-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-        -moz-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-    }
-    .form-group label {
-        margin: 0.5rem;
-    }
-
-    .form-group textarea {
-        height: 8rem;
-    }
-    .email-button {
-        margin-top: 2rem;
-        width: 8rem;
-        line-height: 2rem;
-        background-color: var(--var-color_black);
-        color: var(--var-color_white);
-        border-radius: 0.3rem;
-        box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-        -webkit-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-        -moz-box-shadow: 0px 11px 13px -5px rgba(0, 0, 0, 0.84);
-    }
-    .email-button:active {
-        box-shadow: 0px 0px 27px -5px rgba(128, 128, 128, 0.84) inset;
-        -webkit-box-shadow: 0px 0px 27px -5px rgba(128, 128, 128, 0.84) inset;
-        -moz-box-shadow: 0px 0px 27px -5px rgba(128, 128, 128, 0.84) inset;
     }
 }

@@ -1,12 +1,12 @@
 <mat-progress-bar
-    *ngIf="isLoading"
+    *ngIf="loading"
     mode="indeterminate"
     color="warn"
     value="40"
     class="progress-bar"
 ></mat-progress-bar>
 <div class="main-container">
-    <div class="inner-container">
+    <div class="inner-container" *ngIf="!loading">
         <ul
             *ngFor="let project of projects; index as index"
             id="animated-headline"
@@ -21,7 +21,9 @@
             style="padding: 18rem"
         >
             <h2>
-                <span id="animated-span"> {{ project.title }} </span>
+                <span id="animated-span">
+                    {{ project.title }}
+                </span>
             </h2>
             <p>{{ project.description_de }}</p>
             <p>{{ project.technology_de }}</p>

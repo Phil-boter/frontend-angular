@@ -4,12 +4,14 @@ import { Project } from 'src/app/interfaces/Projects';
 import { ErrorService } from '../errorService/error.service';
 import { RestService } from '../restService/rest.service';
 import { ToastService } from '../toastService/toast.service';
+import { ProjectModel } from 'src/app/models/project.model';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProjectService {
-    private projects: Project[] = [];
+    public projects: Project[] = [];
+    public project!: Project;
 
     constructor(
         private restService: RestService,
@@ -18,19 +20,27 @@ export class ProjectService {
     ) {}
 
     // project section
-    public async getProjects(): Promise<Project[] | undefined> {
+    public async getProjects(): Promise<Project[]> {
         try {
+            const projectsArray: Project[] = [];
             const data = await this.restService.getAllProjects().toPromise();
             if (data && data.length > 0) {
-                console.log('data', data);
                 this.toastService.showInfo('all projects are loaded', 'Info');
-
-                return data;
+                data.forEach((project: Project) => {
+                    const newProject = ProjectModel.createProject(project);
+                    console.log('new', newProject);
+                    projectsArray.push(newProject);
+                });
+                return projectsArray;
             } else {
-                return undefined;
+                return [];
             }
         } catch (err) {
             return this.errorService.errorHandler(err);
         }
+    }
+
+    public get projectTiltle() {
+        return this.project.title;
     }
 }
