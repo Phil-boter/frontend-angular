@@ -27,10 +27,6 @@ export class ScrollToTopButtonComponent implements OnInit {
 
     scroll = (event: Event): void => {
         const body = document.getElementById('body');
-        console.log(
-            'event'
-            // console.log(this.windowScrolService.updateScrollY())
-        );
     };
 
     ngOnDestroy() {

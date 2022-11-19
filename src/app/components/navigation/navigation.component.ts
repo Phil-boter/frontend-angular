@@ -9,6 +9,7 @@ import {
 } from '@angular/core';
 
 import { Subscription } from 'rxjs';
+import { ModalService } from 'src/app/services/modalService/modal.service';
 import {
     NavigationLink,
     NavigationService,
@@ -28,9 +29,11 @@ export class NavigationComponent implements OnInit {
     public navigationIsOpen: boolean = false;
     public resizeSubscription: Subscription = new Subscription();
     public navigationLinks: NavigationLink[] = [];
+
     constructor(
         private resizeService: ResizeService,
-        private navigationService: NavigationService
+        private navigationService: NavigationService,
+        private modalService: ModalService
     ) {}
 
     ngOnInit(): void {
@@ -57,6 +60,10 @@ export class NavigationComponent implements OnInit {
     public showNavigationLinks(): void {
         this.navigationLinks =
             this.navigationService.provideNavigationLinkList();
+    }
+
+    public openEmailModal() {
+        this.modalService.openEmailModal();
     }
 
     ngOnDestroy() {}

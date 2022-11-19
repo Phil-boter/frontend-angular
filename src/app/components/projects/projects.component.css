@@ -2,3 +2,49 @@
     position: absolute;
     z-index: 1000;
 }
+
+.main-container {
+    overflow-y: scroll;
+}
+
+/* ----------floating headlines ----------- */
+
+#animated-headline h1 span {
+    font-size: 2rem !important;
+}
+
+/* .intro-text {
+	height: 20rem;
+} */
+
+#animated-headline h1 {
+    height: 6rem;
+    display: flex;
+    overflow: hidden;
+    /* margin-bottom: 1rem; */
+    justify-content: center;
+}
+
+#animated-headline h1 {
+    justify-content: center;
+}
+
+#animated-headline h1 span {
+    display: block;
+    line-height: 6rem;
+    font-size: 6rem;
+    text-transform: uppercase;
+    margin: 0.05rem;
+    transform: translateY(-200%);
+    color: black;
+    font-family: Vollkorn;
+}
+
+#animated-headline h1 span.active {
+    transform: translateY(0%);
+    transition: 2s ease-out;
+}
+
+#animated-headline p {
+    font-size: 1.5rem;
+}

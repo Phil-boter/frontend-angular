@@ -36,10 +36,17 @@
         (click)="close()"
         >{{ link.title }}</a
     >
+    <a (click)="openEmailModal()">
+        <ion-icon
+            size="large"
+            name="paper-plane-outline"
+            src="../../../assets/paper-plane-outline.svg"
+        ></ion-icon>
+    </a>
 </div>
 
 <div *ngIf="isMobile" class="nav-mobile-container">
-    <div class="nav-links-mobile">
+    <div class="nav-links-mobile boxshadow-top">
         <div
             class="mobile-navigation-button"
             *ngFor="let link of navigationLinks; let i = index"
@@ -53,6 +60,18 @@
                     src="{{ link.iconSrc }}"
                 ></ion-icon
             ></a>
+        </div>
+        <div class="mobile-navigation-button">
+            <p
+                (click)="openEmailModal()"
+                class="mobile-navigation-button mobile4"
+            >
+                <ion-icon
+                    size="large"
+                    name="paper-plane-outline"
+                    src="../../../assets/paper-plane-outline.svg"
+                ></ion-icon>
+            </p>
         </div>
     </div>
 </div>

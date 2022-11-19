@@ -34,14 +34,14 @@ const navigationLinkList = [
         iconName: 'chatbubbles-outline',
         iconSize: 'large',
     },
-    {
-        id: 4,
-        title: 'email',
-        link: 'email',
-        iconSrc: '../../../assets/paper-plane-outline.svg',
-        iconName: 'paper-plane-outline',
-        iconSize: 'large',
-    },
+    // {
+    //     id: 4,
+    //     title: 'email',
+    //     link: 'email',
+    //     iconSrc: '../../../assets/paper-plane-outline.svg',
+    //     iconName: 'paper-plane-outline',
+    //     iconSize: 'large',
+    // },
     {
         id: 5,
         title: 'about',

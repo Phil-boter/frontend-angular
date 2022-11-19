@@ -1,14 +1,30 @@
 <mat-progress-bar
-    *ngIf="isLoading"
+    *ngIf="loading"
     mode="indeterminate"
     color="warn"
     value="40"
     class="progress-bar"
 ></mat-progress-bar>
 <div class="main-container">
-    <div class="inner-container">
-        <ul *ngFor="let project of projects; let i = index">
-            <h1>{{ project.title }}</h1>
+    <div class="inner-container" *ngIf="!loading">
+        <ul
+            *ngFor="let project of projects; index as index"
+            id="animated-headline"
+            class="header1"
+            #headline
+            class="example-card"
+            appObserveElement
+            #intersection="intersection"
+            [class.example-card--is-intersecting]="intersection._isIntersecting"
+            (isIntersecting)="animateHeadline($event, index)"
+            [isContinuous]="true"
+            style="padding: 18rem"
+        >
+            <h2>
+                <span id="animated-span">
+                    {{ project.title }}
+                </span>
+            </h2>
             <p>{{ project.description_de }}</p>
             <p>{{ project.technology_de }}</p>
         </ul>
