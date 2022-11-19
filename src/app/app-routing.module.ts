@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EmailPageComponent } from './pages/emailPage/email-page.component';
 import { ProjectPageComponent } from './pages/projectPage/projectPage.component';
 
-const routes: Routes = [
-    { path: 'project', component: ProjectPageComponent },
-    { path: 'email', component: EmailPageComponent },
-];
+const routes: Routes = [{ path: 'project', component: ProjectPageComponent }];
 
 @NgModule({
     imports: [
