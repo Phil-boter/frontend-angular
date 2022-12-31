@@ -10,8 +10,8 @@ import { Email } from 'src/app/interfaces/email';
     providedIn: 'root',
 })
 export class RestService {
-    //private readonly baseURL: string = 'http://localhost:3500';
-    private readonly baseURL: string = 'https://philippdawid.ddns.net';
+    private readonly baseURL: string = 'http://localhost:3500';
+    // private readonly baseURL: string = 'https://philippdawid.ddns.net';
 
     constructor(private http: HttpClient, private errorService: ErrorService) {}
 
