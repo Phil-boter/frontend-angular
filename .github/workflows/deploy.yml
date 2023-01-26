@@ -10,9 +10,9 @@ jobs:
 	my-deploy:
       	runs-on: [self-hosted, linux]
 
-	strategy: 
-        matrix:
-            node-version: [16.x]
+	    strategy: 
+            matrix:
+                node-version: [16.x]
 
       	steps: 
          	- uses: actions/checkout@v2
