@@ -8,13 +8,13 @@ on:
 
 jobs:    
     deploy:
-        name: Build
+        name:  [ "Build" ]
 
-      	runs-on: [self-hosted, linux]
+      	runs-on: [ "self-hosted", "linux" ]
 
 	    strategy: 
             matrix:
-                node-version: [16.x]
+                node-version: [ "16.x" ]
 
       	steps: 
          	- uses: actions/checkout@v2
