@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 jobs:    
-	deploy:
+	my-deploy:
       	runs-on: [self-hosted, linux]
 
 	strategy: 
