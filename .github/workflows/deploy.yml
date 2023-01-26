@@ -1,0 +1,47 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy to Raspberry Pi
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  	push:
+    	branches: - master 
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+    deploy:
+      	name: Deployment (dev)
+      	runs-on: ubuntu-latest
+
+      	steps: 
+         	- uses: actions/checkout@v1
+
+         	- name: Node 16.19.0
+           	  uses: actions/setup-node@V1
+			  with: 
+				node-version: 16.19.0
+
+			- name: npm i and npm run build
+			  run :
+			    npm i
+				mpm run build
+
+			- name:  copy files to server
+			  uses:  appleboy/scp-action@master
+			  with:
+			    HOST: ${{ secrets.HOST }}
+				PORT: ${{ secrets.PORT }}
+				USERNAME: ${{ secrets.USERNAME }}
+				password: ${{ secrets.PASSWORD }}
+				target: ${ secrets.TARGET }}
+				source: "./dist/*"
+				strip_components: 1
+			    
+
+
+
+
+
+
+  
