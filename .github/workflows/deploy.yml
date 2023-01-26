@@ -9,7 +9,7 @@ on:
 jobs:    
     deploy:
         name:  [ "Build" ]
-      	#runs-on: [self-hosted, linux, ARM64]
+
 	    strategy: 
             matrix:
                 node-version: [ "16.x" ]
