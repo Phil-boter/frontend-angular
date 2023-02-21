@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, catchError, retry, throwError } from 'rxjs';
+import { environment } from '../../../environments/environment.prod';
 
 import { Project } from 'src/app/interfaces/Projects';
 import { ErrorService } from '../errorService/error.service';
@@ -10,8 +11,8 @@ import { Email } from 'src/app/interfaces/email';
     providedIn: 'root',
 })
 export class RestService {
-    private readonly baseURL: string = 'http://localhost:3500';
-    // private readonly baseURL: string = 'https://philippdawid.ddns.net';
+    //private readonly baseURL: string = 'http://localhost:3500';
+    private readonly baseURL: string = environment.API_URL;
 
     constructor(private http: HttpClient, private errorService: ErrorService) {}
 

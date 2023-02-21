@@ -22,11 +22,17 @@
         >
             <h2>
                 <span id="animated-span">
-                    {{ project.title }}
+                    {{ project.titleOne }}
                 </span>
             </h2>
-            <p>{{ project.description_de }}</p>
-            <p>{{ project.technology_de }}</p>
+            <div *ngIf="isGerman">       
+                <p>{{ project.germanDescription }}</p>
+                <p>{{ project.germanUsedTechnology }}</p>
+            </div>
+            <div *ngIf="!isGerman">       
+                <p>{{ project.englishDescription }}</p>
+                <p>{{ project.englishUsedTechnology }}</p>
+            </div>
         </ul>
     </div>
 </div>

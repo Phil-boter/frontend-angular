@@ -1,7 +1,7 @@
 import { Project } from '../interfaces/Projects';
 
 export class ProjectModel {
-    public id: number;
+    public readonly id: number;
     public title: string;
     public title_second: string;
     public description_de: string;
@@ -57,5 +57,79 @@ export class ProjectModel {
             project.host,
             project.created_at
         );
+    }
+
+    public get projectId() {
+        return this.id;
+    }
+
+    public get titleOne() {
+        return this.title;
+    }
+    public set titleOne(value: string) {
+        this.title = value;
+    }
+
+    public get germanDescription() {
+        return this.description_de;
+    }
+    public set germanDescription(value: string) {
+        this.description_de = value;
+    }
+
+    public get englishDescription() {
+        return this.description_en;
+    }
+    public set englishDescription(value: string) {
+        this.description_en = value;
+    }
+
+    public get germanUsedTechnology() {
+        return this.technology_de;
+    }
+    public set germanUsedTechnology(value: string) {
+        this.technology_de = value;
+    }
+
+    public get englishUsedTechnology() {
+        return this.technology_en;
+    }
+    public set englishUsedTechnology(value: string) {
+       this.technology_en = value;
+    }
+
+    public get mainImageOfProject() {
+        return this.main_image;
+    }
+    public set mainImageOfProject(value: string) {
+        this.main_image = value;
+    }
+
+    public get subImageArray() {
+        return this.images;
+    }
+    public set subImageArray(value: []) {
+        this.images = value;
+    }
+
+    public get urlForGitHubLink() {
+        return this.link;
+    }
+    public set urlForGitHubLink(value: string) {
+        this.link = value;
+    }
+
+    public get urlForHostedProject() {
+        return this.host;
+    }
+    public set urlForHostedProject(value: string) {
+        this.host = value;
+    }
+
+    public get creationDate() {
+        return this.created_at;
+    }
+    public set creationDate(value: Date) {
+        this.created_at = value;
     }
 }

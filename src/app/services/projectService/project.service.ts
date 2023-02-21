@@ -10,8 +10,8 @@ import { ProjectModel } from 'src/app/models/project.model';
     providedIn: 'root',
 })
 export class ProjectService {
-    public projects: Project[] = [];
-    public project!: Project;
+    public projects: ProjectModel[] = [];
+    public project!: ProjectModel;
 
     constructor(
         private restService: RestService,
@@ -20,15 +20,14 @@ export class ProjectService {
     ) {}
 
     // project section
-    public async getProjects(): Promise<Project[]> {
+    public async getProjects(): Promise<ProjectModel[]> {
         try {
-            const projectsArray: Project[] = [];
+            const projectsArray: ProjectModel[] = [];
             const data = await this.restService.getAllProjects().toPromise();
             if (data && data.length > 0) {
                 this.toastService.showInfo('all projects are loaded', 'Info');
                 data.forEach((project: Project) => {
                     const newProject = ProjectModel.createProject(project);
-                    console.log('new', newProject);
                     projectsArray.push(newProject);
                 });
                 return projectsArray;
@@ -40,7 +39,4 @@ export class ProjectService {
         }
     }
 
-    public get projectTiltle() {
-        return this.project.title;
-    }
 }

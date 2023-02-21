@@ -8,6 +8,7 @@ import {
     ViewChildren,
     AfterViewInit,
     AfterViewChecked,
+    SimpleChanges,
 } from '@angular/core';
 import {
     Subscription,
@@ -19,6 +20,7 @@ import {
 } from 'rxjs';
 import { Project } from 'src/app/interfaces/Projects';
 import { ProjectModel } from 'src/app/models/project.model';
+import { LanguageService } from 'src/app/services/languageService/language.service';
 
 import { ProjectService } from 'src/app/services/projectService/project.service';
 
@@ -28,24 +30,31 @@ import { ProjectService } from 'src/app/services/projectService/project.service'
     styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit, AfterViewChecked {
-    public projects?: ProjectModel[] = [];
+    public projects: ProjectModel[] = [];
     public error = Subscription;
     private isLoading: boolean = false;
     public header: any = [];
     public observer!: IntersectionObserver;
     public project?: ProjectModel;
+    public isGerman: boolean = true;
 
     constructor(
         private projectService: ProjectService,
+        private langaugeService: LanguageService,
         private ref: ElementRef
     ) {}
 
     ngOnInit(): void {
+        this.isGerman = this.langaugeService.languageInBrowser()
         this.loadProjects().finally();
     }
 
     ngAfterViewChecked() {
         this.header = document.querySelectorAll('h2');
+    }
+
+    ngOnChanges(changes: SimpleChanges) {
+        console.log("changes",changes)
     }
 
     private async loadProjects(): Promise<void> {
@@ -58,7 +67,6 @@ export class ProjectsComponent implements OnInit, AfterViewChecked {
         this.header = document.querySelectorAll('h2');
         if (this.header && status) {
             const item = this.header[index];
-            console.log('item    2:', item);
             let newHeader = '';
             let headerText = item.children[0].innerText.split('');
             headerText.map(
