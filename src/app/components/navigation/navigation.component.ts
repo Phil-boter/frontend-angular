@@ -38,6 +38,7 @@ export class NavigationComponent implements OnInit {
 
     ngOnInit(): void {
         this.showNavigationLinks();
+        this.resizeSubscription.add;
     }
     ngDoCheck() {
         this.isMobile = this.resizeService.isMobile();
@@ -66,5 +67,7 @@ export class NavigationComponent implements OnInit {
         this.modalService.openEmailModal();
     }
 
-    ngOnDestroy() {}
+    ngOnDestroy() {
+        this.resizeSubscription.unsubscribe;
+    }
 }

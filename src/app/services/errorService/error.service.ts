@@ -7,14 +7,14 @@ import { ToastService } from '../toastService/toast.service';
 export class ErrorService {
     constructor(private toastService: ToastService) {}
 
-    public errorHandler(error: any): Promise<any> {
-        let errorMessage = '';
+    public errorHandler(error: any, errorMessage: string): Promise<any> {
+        let errorLog = '';
         if (error.error instanceof ErrorEvent) {
-            errorMessage = error.error.message;
+            errorLog = error.error.message;
         } else {
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+            errorLog = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        this.toastService.showError(`${error}`, 'Error');
-        throw new Error(errorMessage);
+        this.toastService.showError(`${errorMessage}`, 'Error');
+        throw new Error(errorLog);
     }
 }

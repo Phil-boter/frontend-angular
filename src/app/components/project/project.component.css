@@ -1,11 +1,3 @@
-.progress-bar {
-    position: absolute;
-    z-index: 1000;
-}
-
-.main-container {
-    overflow-y: scroll;
-}
 
 /* ----------floating headlines ----------- */
 

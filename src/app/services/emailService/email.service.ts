@@ -24,7 +24,7 @@ export class EmailService {
                 }
             });
         } catch (error) {
-            return this.errorService.errorHandler(error);
+            return this.errorService.errorHandler(error, 'unable to send message');
         }
     }
 }

@@ -9,6 +9,7 @@ import {
     AfterViewInit,
     AfterViewChecked,
     SimpleChanges,
+    Input,
 } from '@angular/core';
 import {
     Subscription,
@@ -18,35 +19,33 @@ import {
     switchMap,
     findIndex,
 } from 'rxjs';
-import { Project } from 'src/app/interfaces/Projects';
 import { ProjectModel } from 'src/app/models/project.model';
 import { LanguageService } from 'src/app/services/languageService/language.service';
 
 import { ProjectService } from 'src/app/services/projectService/project.service';
 
 @Component({
-    selector: 'app-projects',
-    templateUrl: './projects.component.html',
-    styleUrls: ['./projects.component.css'],
+    selector: 'app-project-component',
+    templateUrl: './project.component.html',
+    styleUrls: ['./project.component.css'],
 })
-export class ProjectsComponent implements OnInit, AfterViewChecked {
+export class ProjectComponent implements OnInit, AfterViewChecked {
+    @Input() project!: ProjectModel;
+
     public projects: ProjectModel[] = [];
     public error = Subscription;
     private isLoading: boolean = false;
     public header: any = [];
     public observer!: IntersectionObserver;
-    public project?: ProjectModel;
     public isGerman: boolean = true;
 
     constructor(
-        private projectService: ProjectService,
         private langaugeService: LanguageService,
         private ref: ElementRef
     ) {}
 
     ngOnInit(): void {
         this.isGerman = this.langaugeService.languageInBrowser()
-        this.loadProjects().finally();
     }
 
     ngAfterViewChecked() {
@@ -55,12 +54,6 @@ export class ProjectsComponent implements OnInit, AfterViewChecked {
 
     ngOnChanges(changes: SimpleChanges) {
         console.log("changes",changes)
-    }
-
-    private async loadProjects(): Promise<void> {
-        this.isLoading = true;
-        this.projects = await this.projectService.getProjects();
-        this.isLoading = false;
     }
 
     public animateHeadline(status: boolean, index: number) {

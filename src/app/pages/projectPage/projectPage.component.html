@@ -1,1 +1,15 @@
-<app-projects></app-projects>
+<h1>Project Page</h1>
+<mat-progress-bar
+  *ngIf="isLoading"
+  mode="indeterminate"
+  color="warn"
+  value="40"
+  class="progress-bar"
+></mat-progress-bar>
+<div *ngIf="projects$ | async as projects">
+    <ul *ngIf="!isLoading">
+        <li *ngFor="let project of projects">
+           <app-project-component [project]="project"></app-project-component>
+        </li>
+      </ul>
+</div>
