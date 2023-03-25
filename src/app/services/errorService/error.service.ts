@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+import { LanguageService } from '../languageService/language.service';
 import { ToastService } from '../toastService/toast.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ErrorService {
-    constructor(private toastService: ToastService) {}
+    constructor(
+        private toastService: ToastService,
+        private languageService: LanguageService
+    ) {}
 
     public errorHandler(error: any, errorMessage: string): Promise<any> {
         let errorLog = '';
@@ -14,7 +18,7 @@ export class ErrorService {
         } else {
             errorLog = `Error Code: ${error.status}\nMessage: ${error.message}`;
         }
-        this.toastService.showError(`${errorMessage}`, 'Error');
+        this.toastService.showError(`${errorMessage}`, this.languageService.languageInBrowser() ? 'Fehler' : 'Error' );
         throw new Error(errorLog);
     }
 }

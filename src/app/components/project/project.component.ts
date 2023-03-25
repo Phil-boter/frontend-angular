@@ -31,22 +31,20 @@ import { ProjectService } from 'src/app/services/projectService/project.service'
 })
 export class ProjectComponent implements OnInit, AfterViewChecked {
     @Input() project!: ProjectModel;
+    @Input() isGerman: boolean = false;
 
     public projects: ProjectModel[] = [];
     public error = Subscription;
     private isLoading: boolean = false;
     public header: any = [];
     public observer!: IntersectionObserver;
-    public isGerman: boolean = true;
 
     constructor(
         private langaugeService: LanguageService,
         private ref: ElementRef
     ) {}
 
-    ngOnInit(): void {
-        this.isGerman = this.langaugeService.languageInBrowser()
-    }
+    ngOnInit(): void {console.log(this.isGerman)}
 
     ngAfterViewChecked() {
         this.header = document.querySelectorAll('h2');

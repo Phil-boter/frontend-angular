@@ -9,7 +9,7 @@
 <div *ngIf="projects$ | async as projects">
     <ul *ngIf="!isLoading">
         <li *ngFor="let project of projects">
-           <app-project-component [project]="project"></app-project-component>
+           <app-project-component [project]="project" [isGerman]="isGerman"></app-project-component>
         </li>
       </ul>
 </div>

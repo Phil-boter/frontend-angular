@@ -16,6 +16,7 @@ import { ProjectComponent } from 'src/app/components/project/project.component';
 export class ProjectPageComponent implements OnInit {
 
     public isLoading: boolean = false;
+    public isGerman: boolean = this.languageService.languageInBrowser()
 
     public projects$ = this.projectService.projects$
         .pipe(
@@ -24,7 +25,7 @@ export class ProjectPageComponent implements OnInit {
             tap(() => this.isLoading = false),          
         catchError(err => {
                this.isLoading = false;
-               return this.errorService.errorHandler(err, 'loading failed');
+               return EMPTY;
             })
         );
 
@@ -33,11 +34,10 @@ export class ProjectPageComponent implements OnInit {
     constructor(
         private projectService: ProjectService,
         private errorService: ErrorService,
-        private languageService: LanguageService
+        public languageService: LanguageService
     ) {}
 
-    ngOnInit() {    
-    }
+    ngOnInit() {}
 
     onDestroy() {
         this.isLoading = false;

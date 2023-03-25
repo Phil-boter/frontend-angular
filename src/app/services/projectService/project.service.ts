@@ -9,6 +9,7 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { Observable, Subscription, map, shareReplay, catchError, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
+import { LanguageService } from '../languageService/language.service';
 
 @Injectable({
     providedIn: 'root',
@@ -22,6 +23,7 @@ export class ProjectService {
     constructor(
         private http: HttpClient,
         private errorService: ErrorService,
+        private languageService: LanguageService
     ) {}
 
     // project section
@@ -33,7 +35,7 @@ export class ProjectService {
         ))
         ),
         catchError(err => {
-            return this.errorService.errorHandler(err, 'loading failed');
+            return this.errorService.errorHandler(err, this.languageService.languageInBrowser() ? 'Projekte konnten nicht geladen werden' : 'Unable to load projects');
          }),
         shareReplay(1),
     );
