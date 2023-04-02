@@ -6,7 +6,6 @@ import {
     OnInit,
     OnDestroy,
 } from '@angular/core';
-import { WindowScrollService } from 'src/app/services/windowScrollService/window-scroll.service';
 import { ViewportScroller } from '@angular/common';
 
 @Component({
@@ -17,19 +16,18 @@ import { ViewportScroller } from '@angular/common';
 })
 export class ScrollToTopButtonComponent implements OnInit {
     constructor(
-        private windowScrolService: WindowScrollService,
         private viewPortScroller: ViewportScroller
     ) {}
 
     ngOnInit() {
-        window.addEventListener('scroll', this.scroll, true);
+       // window.addEventListener('scroll', this.scroll, true);
     }
 
     scroll = (event: Event): void => {
-        const body = document.getElementById('body');
+        //const body = document.getElementById('body');
     };
 
     ngOnDestroy() {
-        window.removeEventListener('scroll', this.scroll, true);
+        //window.removeEventListener('scroll', this.scroll, true);
     }
 }

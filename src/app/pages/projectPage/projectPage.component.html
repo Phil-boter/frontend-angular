@@ -1,15 +1,21 @@
-<h1>Project Page</h1>
-<mat-progress-bar
-  *ngIf="isLoading"
-  mode="indeterminate"
-  color="warn"
-  value="40"
-  class="progress-bar"
-></mat-progress-bar>
-<div *ngIf="projects$ | async as projects">
-    <ul *ngIf="!isLoading">
-        <li *ngFor="let project of projects">
-           <app-project-component [project]="project" [isGerman]="isGerman"></app-project-component>
-        </li>
-      </ul>
-</div>
+<!-- <mat-progress-bar
+*ngIf="isLoading"
+mode="indeterminate"
+color="warn"
+value="40"
+class="progress-bar"
+></mat-progress-bar> -->
+  <div *ngIf="projects$ | async as projects" class="center-container">
+      <ul 
+        class="no-list-style"
+        *ngIf="!isLoading"
+        @fadeSlide
+        (@fadeSlide.start)="toggleFlag = true"
+        (@fadeSlide.done)="toggleFlag = false">
+          <li *ngFor="let project of projects"  class="item flex-container-col">
+            <app-project-component 
+            [project]="project"          
+            [isGerman]="isGerman"></app-project-component>
+          </li>
+        </ul>
+  </div>

@@ -17,7 +17,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/scroll-to-top-button/scroll-to-top-button.component';
 import { EmailModalComponent } from './components/emailModal/email-modal.component';
 import { HeadlineComponent } from './components/headline/headline/headline.component';
-import { IntesectionDirective } from './directives/intesection.directive';
 
 @NgModule({
     declarations: [
@@ -27,8 +26,7 @@ import { IntesectionDirective } from './directives/intesection.directive';
         ProjectPageComponent,
         ScrollToTopButtonComponent,
         EmailModalComponent,
-        HeadlineComponent,
-        IntesectionDirective,
+        HeadlineComponent
     ],
     imports: [
         BrowserModule,
