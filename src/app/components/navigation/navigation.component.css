@@ -1,33 +1,71 @@
 .main-header-container {
     position: absolute;
-    width: 100vw;
+    width: 4rem;
     display: flex;
     justify-content: space-between;
     align-content: center;
     left: 0;
     top: 0;
-    padding: 0.4rem;
-    background: transparent;
+    background: var(--var-color_dark);
     height: 3rem;
     z-index: 3;
 }
 
 .main-header {
-    font-size: 2rem;
-    color: var(--var-color_black);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    left: 0;
+    top: 0;
+    height: 3rem;
+    width: 4rem;
 }
-.main-header h1 {
-    padding: 0;
-    margin: 0;
+
+.main-header a {
+    font-size: 2rem;
+    color: white;
 }
 
 /* -------------------  Mobile --------------------- */
 
-@media screen and (max-width) {
-    .main-header-container {
-        padding: 0;
-    }
+
+ion-fab-button {
+    --box-shadow: 0px 3px 5px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
+    --color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.mobile1 {
+    font-size: 1rem;
+    --background: var(--var-color_pink);
+}
+
+.mobile2 {
+    --background: var(--var-color_blue);
+}
+
+.mobile3 {
+    --background: var(--var-color_green);
+}
+
+.mobile4 {
+    --background: rgb(255, 255, 89);
+}
+
+.mobile5 {
+    --background: salmon;
+}
+
+
+.mobile-navigation-button {
+   text-decoration: none;
+   color: black;
+   display: flex;
+}
+
 .nav-mobile-container {
     position: absolute;
     display: flex;
@@ -49,154 +87,78 @@
     height: 70px;
     cursor: pointer;
 }
-.mobile-navigation-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    width: 25%;
-    height: 100%;
-    color: black;
-}
-.mobile1 {
-    width: 100%;
-    background-color: var(--var-color_pink);
-}
 
-.mobile2 {
-    width: 100%;
-    background-color: var(--var-color_blue);
-}
-
-.mobile3 {
-    width: 100%;
-    /* background-color: rgb(81, 164, 81); */
-    background-color: var(--var-color_green);
-}
-
-.mobile4 {
-    width: 100%;
-    background-color: rgb(255, 255, 89);
-}
-
-.mobile5 {
-    width: 100%;
-    background-color: rgb(255, 99, 71);
-}
 
 /* ------------------------- desktp ----------------------------- */
 .nav-desktop-container {
-    height: 50vh;
+    height: 3rem;
     opacity: 1;
-    width: 30%;
-    background: black;
+    width: 100vw;
+    background: var(--var-color_dark);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: space-evenly;
     justify-content: center;
-    transition: all 4s ease;
-    animation-name: bounce;
-    animation-fill-mode: both;
-    animation-duration: 0.9s;
-    border-radius: 0 0 30rem 0;
-    box-shadow: 21px 8px 54px 12px rgba(0, 0, 0, 0.8);
-    -webkit-box-shadow: 21px 8px 54px 12px rgba(0, 0, 0, 0.8);
-    -moz-box-shadow: 21px 8px 54px 12px rgba(0, 0, 0, 0.8);
-}
-/* .nav-desktop-container:active {
-    box-shadow: -11px -13px 29px -11px rgba(69, 69, 69, 0.65) inset;
-    -webkit-box-shadow: -11px -13px 29px -11px rgba(69, 69, 69, 0.65) inset;
-    -moz-box-shadow: -11px -13px 29px -11px rgba(69, 69, 69, 0.65) inset;
-} */
-
-.nav-desktop-container.active {
-    background: var(--var-color_white);
-    opacity: 1;
-    width: 30%;
-    transition: all 3s ease-in-out;
-    align-content: center;
-    padding-right: 0px;
+    box-shadow: 10px 5px 24px 8px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 11px 5px 24px 8px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 11px 5px 24px 8px rgba(0, 0, 0, 0.6);
 }
 
-@keyframes bounce {
-    0% {
-        opacity: 0;
-        transform: translate(-1000px, -500px);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translate(5px, 5px);
-    }
-
-    80% {
-        transform: translate(-10px, -10px);
-    }
-
-    100% {
-        transform: translate(0, 0);
-    }
-}
-
-.nav-desktop-container a {
-    color: white;
-    margin: 0 1rem;
-    font-size: 2.5rem;
-    text-decoration: none;
-    white-space: nowrap;
+.navigation-links-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
     cursor: pointer;
 }
-.nav-desktop-container a:first-child {
-    padding-left: 14rem;
-}
-.nav-desktop-container a:nth-child(2) {
-    padding-left: 12.5rem;
-}
-.nav-desktop-container a:nth-child(3) {
-    padding-left: 8rem;
-}
-.nav-desktop-container a:nth-child(4) {
-    padding-left: 6.6rem;
-}
-.nav-desktop-container a:nth-child(5) {
-    padding-left: 1rem;
+
+.navigation-links-container a {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    color: black;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.burger-container {
-    position: absolute;
-    top: 0;
-    right: 0;
+.link {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0.3rem 0.5rem 0 0;
 }
 
-.navigation-burger {
-    font-size: 2rem;
-    cursor: pointer;
-    display: inline-block;
-    transition: all 2s ease;
+.navigation-links-container a:hover {
+    width: 6.2rem;
+    height: 2.2rem;
+    box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
 }
 
-.bar1,
-.bar2,
-.bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: var(--var-color_black);
-    margin: 6px 0;
-    transition: 10s;
-    transition: all 2s ease;
+.desktop1 {
+    background-color: var(--var-color_pink);
+}
+.desktop1:hover {
+    background-color: var(--var-color_pink);
 }
 
-.moveBurger1 {
-    transition: all 5s ease;
-    transform: rotate(45deg) translate(10.5px, 7.5px);
+.desktop2 {
+    background: var(--var-color_blue);
 }
-.moveBurger2 {
-    opacity: 0;
+
+.desktop3 {
+    background: var(--var-color_green);
 }
-.moveBurger3 {
-    transform: rotate(-45deg) translate(7.5px, -5px);
+
+.desktop4 {
+    background: rgb(255, 255, 89);
+}
+
+.desktop5 {
+    background: salmon;
 }

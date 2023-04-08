@@ -16,7 +16,7 @@ const navigationLinkList = [
         link: '',
         iconSrc: '../../../assets/home-outline.svg',
         iconName: 'home-outline',
-        iconSize: 'large',
+        iconSize: 'small',
     },
     {
         id: 2,
@@ -24,7 +24,7 @@ const navigationLinkList = [
         link: 'project',
         iconSrc: '../../../assets/terminal-outline.svg',
         iconName: 'terminal-outline',
-        iconSize: 'large',
+        iconSize: 'small',
     },
     {
         id: 3,
@@ -32,7 +32,15 @@ const navigationLinkList = [
         link: 'contact',
         iconSrc: '../../../assets/chatbubbles-outline.svg',
         iconName: 'chatbubbles-outline',
-        iconSize: 'large',
+        iconSize: 'small',
+    },
+    {
+        id: 4,
+        title: 'about',
+        link: 'about',
+        iconSrc: '../../../assets/person-circle-outline.svg',
+        iconName: 'person-circle-outline',
+        iconSize: 'small',
     },
     // {
     //     id: 4,
@@ -40,16 +48,8 @@ const navigationLinkList = [
     //     link: 'email',
     //     iconSrc: '../../../assets/paper-plane-outline.svg',
     //     iconName: 'paper-plane-outline',
-    //     iconSize: 'large',
+    //     iconSize: 'small',
     // },
-    {
-        id: 5,
-        title: 'about',
-        link: 'about',
-        iconSrc: '../../../assets/person-circle-outline.svg',
-        iconName: 'person-circle-outline',
-        iconSize: 'large',
-    },
 ];
 
 @Injectable({
