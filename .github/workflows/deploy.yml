@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: "14"
       - name: "Install & build"
-        run: |
+        run: 
           npm i
           npm run build
           # mv public/index.html public/index.nginx-debian.html
