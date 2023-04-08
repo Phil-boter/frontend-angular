@@ -1,4 +1,4 @@
-/* .scroll-to-top {
+ .scroll-to-top {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -16,5 +16,4 @@
 .show-scrollTop {
     opacity: 1;
     transition: all 0.2s ease-in-out;
-}/
- */
+}

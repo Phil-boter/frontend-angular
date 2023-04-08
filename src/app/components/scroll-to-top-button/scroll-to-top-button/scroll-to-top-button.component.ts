@@ -23,8 +23,10 @@ export class ScrollToTopButtonComponent implements OnInit {
        // window.addEventListener('scroll', this.scroll, true);
     }
 
-    scroll = (event: Event): void => {
-        //const body = document.getElementById('body');
+    public scroll = (event: Event): void => {
+        console.log("click scroll", event,     this.viewPortScroller.getScrollPosition())
+        //this.viewPortScroller.scrollToAnchor('top');
+        this.viewPortScroller.scrollToPosition([0,0])
     };
 
     ngOnDestroy() {

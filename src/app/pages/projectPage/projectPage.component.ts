@@ -7,6 +7,7 @@ import { LanguageService } from 'src/app/services/languageService/language.servi
 import { ProjectService } from 'src/app/services/projectService/project.service';
 import { ProjectComponent } from 'src/app/components/project/project.component';
 import { animate, group, query, style, transition, trigger } from '@angular/animations';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
     selector: 'app-project',
@@ -75,7 +76,8 @@ export class ProjectPageComponent implements OnInit {
     constructor(
         private projectService: ProjectService,
         private errorService: ErrorService,
-        public languageService: LanguageService
+        public languageService: LanguageService,
+       
     ) {}
 
     ngOnInit() {

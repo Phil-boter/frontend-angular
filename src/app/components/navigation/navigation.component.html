@@ -1,77 +1,52 @@
-<div class="main-header-container" id="navigation-container">
-    <h1 class="main-header">PD</h1>
-    <div class="burger-container">
-        <span
-            class="navigation-burger"
-            (click)="open()"
-            *ngIf="!isMobile && !navigationIsOpen"
+<div>
+    <div
+        class="nav-desktop-container"
+        [class.active1]="navigationIsOpen"
+    >
+    <div class="main-header">
+        <a id="navigate-to-main" routerLink="" class="no-text-decoration main-header">PD</a>
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+    </div>
+    <div class="navigation-links-container" *ngIf="!isMobile">
+        <a  id="routerLink"
+            class="no-text-decoration desktop{{link.id}} link"
+            *ngFor="let link of navigationLinks; let i = index"
+            routerLink="{{ link.link }}"
+            title="{{link.title}}"
+            ><span class="inner-link">{{ link.title }}</span></a
         >
-            <div class="bar1"></div>
-            <div class="bar3"></div>
-            <div class="bar3"></div>
-        </span>
-
-        <span
-            class="navigation-burger"
-            (click)="close()"
-            *ngIf="!isMobile && navigationIsOpen"
-        >
-            <div [class.moveBurger1]="navigationIsOpen" class="bar1"></div>
-            <div [class.moveBurger2]="navigationIsOpen" class="bar2"></div>
-            <div [class.moveBurger3]="navigationIsOpen" class="bar3"></div>
-        </span>
+        <a (click)="openEmailModal()" id="routerLink" class="no-text-decoration desktop5 link" title="E-Mail">
+            <span class="inner-link">E-Mail</span>
+        </a>
     </div>
 </div>
 
-<div
-    *ngIf="!isMobile && navigationIsOpen"
-    class="nav-desktop-container"
-    [class.active1]="navigationIsOpen"
->
-    <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+<!-- mobile view -->
 
-    <a
-        *ngFor="let link of navigationLinks; let i = index"
-        routerLink="{{ link.link }}"
-        (click)="close()"
-        >{{ link.title }}</a
-    >
-    <a (click)="openEmailModal()">
-        <ion-icon
-            size="large"
-            name="paper-plane-outline"
-            src="../../../assets/paper-plane-outline.svg"
-        ></ion-icon>
-    </a>
-</div>
-
-<div *ngIf="isMobile" class="nav-mobile-container">
-    <div class="nav-links-mobile boxshadow-top">
-        <div
-            class="mobile-navigation-button"
-            *ngFor="let link of navigationLinks; let i = index"
-        >
+<ion-fab slot="fixed" vertical="top" horizontal="end" *ngIf="isMobile" id="nav-fab-button">
+    <ion-fab-button color="dark">
+        <ion-icon name="menu"></ion-icon>
+      </ion-fab-button>
+    <ion-fab-list side="bottom">
+         <ion-fab-button *ngFor="let link of navigationLinks; let i = index" class="mobile{{ link.id }}">
             <a
                 routerLink="{{ link.link }}"
-                class="mobile-navigation-button mobile{{ link.id }}"
+                class="mobile-navigation-button"
                 ><ion-icon
                     size="{{ link.iconSize }}"
                     name="{{ link.iconName }}"
                     src="{{ link.iconSrc }}"
                 ></ion-icon
             ></a>
-        </div>
-        <div class="mobile-navigation-button">
-            <p
-                (click)="openEmailModal()"
-                class="mobile-navigation-button mobile4"
-            >
+        </ion-fab-button>
+        <ion-fab-button class="mobile5">
+            <a (click)="openEmailModal()" class="mobile-navigation-button">
                 <ion-icon
-                    size="large"
+                    size="small"
                     name="paper-plane-outline"
                     src="../../../assets/paper-plane-outline.svg"
                 ></ion-icon>
-            </p>
-        </div>
-    </div>
-</div>
+            </a>
+        </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>

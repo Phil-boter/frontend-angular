@@ -1,0 +1,164 @@
+.main-header-container {
+    position: absolute;
+    width: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    left: 0;
+    top: 0;
+    background: var(--var-color_dark);
+    height: 3rem;
+    z-index: 3;
+}
+
+.main-header {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    left: 0;
+    top: 0;
+    height: 3rem;
+    width: 4rem;
+}
+
+.main-header a {
+    font-size: 2rem;
+    color: white;
+}
+
+/* -------------------  Mobile --------------------- */
+
+
+ion-fab-button {
+    --box-shadow: 0px 3px 5px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
+    --color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile1 {
+    font-size: 1rem;
+    --background: var(--var-color_pink);
+}
+
+.mobile2 {
+    --background: var(--var-color_blue);
+}
+
+.mobile3 {
+    --background: var(--var-color_green);
+}
+
+.mobile4 {
+    --background: rgb(255, 255, 89);
+}
+
+.mobile5 {
+    --background: salmon;
+}
+
+
+.mobile-navigation-button {
+   text-decoration: none;
+   color: black;
+   display: flex;
+}
+
+.nav-mobile-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    opacity: 1;
+    z-index: 1;
+    background-color: var(--var-color_dark);
+}
+
+.nav-links-mobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+    max-width: 450px;
+    height: 70px;
+    cursor: pointer;
+}
+
+
+/* ------------------------- desktp ----------------------------- */
+.nav-desktop-container {
+    height: 3rem;
+    opacity: 1;
+    width: 100vw;
+    background: var(--var-color_dark);
+    display: flex;
+    flex-direction: row;
+    align-items: space-evenly;
+    justify-content: center;
+    box-shadow: 10px 5px 24px 8px rgba(0, 0, 0, 0.6);
+    -webkit-box-shadow: 11px 5px 24px 8px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 11px 5px 24px 8px rgba(0, 0, 0, 0.6);
+}
+
+.navigation-links-container {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navigation-links-container a {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    color: black;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    width: 6rem;
+    height: 2rem;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation-links-container a:hover {
+    width: 6.2rem;
+    height: 2.2rem;
+    box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
+    -webkit-box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
+}
+
+.desktop1 {
+    background-color: var(--var-color_pink);
+}
+.desktop1:hover {
+    background-color: var(--var-color_pink);
+}
+
+.desktop2 {
+    background: var(--var-color_blue);
+}
+
+.desktop3 {
+    background: var(--var-color_green);
+}
+
+.desktop4 {
+    background: rgb(255, 255, 89);
+}
+
+.desktop5 {
+    background: salmon;
+}

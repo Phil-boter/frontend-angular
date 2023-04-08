@@ -1,16 +1,102 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+@import "~@ionic/angular/css/display.css";
+
+
 /* You can add global styles to this file, and also import other style files */
-* {
-    margin: 0;
-    padding: 0;
+ * {
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100vh;
-    width: 100vw;
-    overflow-y: scroll !important;
+body, html {
+    margin: 0;
+    padding: 0;
 }
 
+:root {
+    --var-color_pink: rgb(255, 94, 174);
+    --var-color_dark: rgb(68, 68, 68);
+    --var-color_gray: rgb(247, 247, 247);
+    --var-color_blue: rgb(143, 178, 244);
+    --var-color_green: #51a351;
+    --var-color_white: white;
+    --var-color_black: black;
+    --var-color_projectHeader: rgb(0, 0, 0);
+    --var-color_darkgray: rgb(83, 83, 83);
+    --var-color_link: gold;
+    --var-color_modal-header: rgb(23, 23, 23);
+    --var-color_button-inset: rgba(88, 88, 88, 0.84);
+}
+
+ion-modal {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.email-modal::part(content) {
+    background-color: var(--var-color_darkgray);
+    border-radius: 15px;
+}
+
+.modal-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+    align-items: center;
+}
+
+.main-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: column;
+    align-items: center;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.boxshadow-bottom {
+    box-shadow: 0px 5px 17px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 5px 17px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 5px 17px 0px rgba(0, 0, 0, 0.75);
+}
+
+.boxshadow-top {
+    box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -2px 17px 0px rgba(0, 0, 0, 0.75);
+}
+
+.no-text-decoration {
+    text-decoration: none;
+}
 /* ______________________________     TOASTR-SECTION  START UNTIL LINE 213 __________________________________________________________ */
 
 /* based on angular-toastr css https://github.com/Foxandxss/angular-toastr/blob/cb508fe6801d6b288d3afc525bb40fee1b101650/dist/angular-toastr.css */
