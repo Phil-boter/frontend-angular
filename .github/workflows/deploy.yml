@@ -10,8 +10,7 @@ jobs:
 
   build:    
 		check-bats-version:
-    runs-on: 
-ded      group: [self-hosted, linux, ARM64]
+    runs-on:  [self-hosted, linux, ARM64]
 
     - name: Set up Go 1.x
       uses: actions/checkout@v3
