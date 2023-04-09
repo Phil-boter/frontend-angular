@@ -9,7 +9,9 @@ on:
 jobs:
 
   build:    
-		runs-on: [self-hosted, linux, ARM64]
+		check-bats-version:
+    runs-on: 
+      group: ubuntu-runners
 
     - name: Set up Go 1.x
       uses: actions/checkout@v3
