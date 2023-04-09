@@ -8,9 +8,10 @@ on:
 
 jobs:
 
-  build:
-    runs-on: self-hosted
-    steps:
+  build:    
+	  - name: [ Build ]
+			runs-on: self-hosted
+			steps:
 
     - name: Set up Go 1.x
       uses: actions/setup-go@v2
