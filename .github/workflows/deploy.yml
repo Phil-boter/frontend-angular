@@ -7,7 +7,6 @@ on:
     branches:
       - [ master ]
 jobs:
-  deploy:
     runs-on: [self-hosted, linus, ARM64 ]
     steps:
       - uses: actions/checkout@v3
