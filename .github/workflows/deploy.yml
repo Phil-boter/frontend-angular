@@ -11,7 +11,7 @@ jobs:
   build:    
 		check-bats-version:
     runs-on: 
-      group: ubuntu-runners
+      group: [self-hosted, linux, ARM64]
 
     - name: Set up Go 1.x
       uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
       run: |
           npm i
           npm run build
-					
+
     - name: "Push to server"
         uses: appleboy/scp-action@master
 			  with:
