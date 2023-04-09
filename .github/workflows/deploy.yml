@@ -8,7 +8,6 @@ on:
       - [ master ]
 jobs:
   deploy:
-    name: [ Deploy ]
     runs-on: [self-hosted, linus, ARM64 ]
     steps:
       - uses: actions/checkout@v3
