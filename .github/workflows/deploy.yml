@@ -1,20 +1,20 @@
 # This is a basic workflow to help you get started with Actions
 
 
-name: [ "deploy" ]
+name: [ deploy ]
 on:
   push:
     branches:
-      - [ "master" ]
+      - [ master ]
 jobs:
   deploy:
-    name: [ "Deploy" ]
-    runs-on: ubuntu-latest
+    name: [ Deploy ]
+    runs-on: [self-hosted, linus, ARM64 ]
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: [ "16.x" ]
+          node-version: [ 16.x ]
       - name: "Install & build"
         run: 
           npm i
