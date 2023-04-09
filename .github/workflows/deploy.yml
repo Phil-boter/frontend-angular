@@ -9,16 +9,16 @@ on:
 jobs:
 
   build:    
-	  - name: Build
-			runs-on: self-hosted
-			steps:
+		runs-on: self-hosted
+		ssteps:
 
     - name: Set up Go 1.x
-      uses: actions/setup-go@v2
+      uses: actions/checkout@v3
+      uses: actions/setup-node@v3
       with:
-        go-version: ^1.15
+        node-version: [ 16.x ]
 
-    - name: Check out code into the Go module directory
+    - name: Check out code
       uses: actions/checkout@v2
 
     - name: Run Build
