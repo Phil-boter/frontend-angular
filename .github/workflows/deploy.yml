@@ -24,16 +24,10 @@ jobs:
 
     - name: Run Build
       run: |
-          npm install
+          npm i
           npm run build
-
-
-
-
-
-
-
-     - name: "Push to server"
+					
+    - name: "Push to server"
         uses: appleboy/scp-action@master
 			  with:
 			    HOST: ${{ secrets.HOST }}
