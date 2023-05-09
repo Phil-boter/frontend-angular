@@ -2,6 +2,7 @@
 
 name: Go Build
 
+<<<<<<< HEAD
 on:
   push:
     branches: [ master ]
@@ -23,6 +24,22 @@ jobs:
 
     - name: Run Build
       run: |
+=======
+name: [ deploy ]
+on:
+  push:
+    branches:
+      - [ master ]
+jobs:
+    runs-on: [self-hosted, linus, ARM64 ]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: [ 16.x ]
+      - name: "Install & build"
+        run: 
+>>>>>>> origin/master
           npm i
           npm run build
 

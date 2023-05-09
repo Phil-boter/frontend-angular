@@ -67,6 +67,10 @@ export class NavigationComponent implements OnInit {
         this.modalService.openEmailModal();
     }
 
+    public openRoute(routerLink: string) {
+        this.navigationService.openRoute(routerLink)
+    } 
+
     ngOnDestroy() {
         this.resizeSubscription.unsubscribe;
     }
