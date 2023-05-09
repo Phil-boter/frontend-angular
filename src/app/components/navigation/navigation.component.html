@@ -28,16 +28,15 @@
         <ion-icon name="menu"></ion-icon>
       </ion-fab-button>
     <ion-fab-list side="bottom">
-         <ion-fab-button *ngFor="let link of navigationLinks; let i = index" class="mobile{{ link.id }}">
-            <a
-                routerLink="{{ link.link }}"
+         <ion-fab-button *ngFor="let link of navigationLinks; let i = index" class="mobile{{ link.id }}" (click)="openRoute(link.link)">
+            <div
                 class="mobile-navigation-button"
                 ><ion-icon
                     size="{{ link.iconSize }}"
                     name="{{ link.iconName }}"
                     src="{{ link.iconSrc }}"
                 ></ion-icon
-            ></a>
+            ></div>
         </ion-fab-button>
         <ion-fab-button class="mobile5">
             <a (click)="openEmailModal()" class="mobile-navigation-button">

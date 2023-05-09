@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface NavigationLink {
     id: number;
@@ -59,7 +60,9 @@ export class NavigationService {
     public navigationIsOpen: boolean = false;
     public linkList: NavigationLink[] = navigationLinkList;
 
-    constructor() {}
+    constructor(
+        private router: Router
+        ) {}
 
     public openNavigation(): boolean {
         console.log('open');
@@ -74,4 +77,9 @@ export class NavigationService {
     public provideNavigationLinkList(): NavigationLink[] {
         return this.linkList;
     }
-}
+
+    public openRoute(routerLink: string) {
+        console.log(routerLink)
+        this.router.navigate([`${routerLink}`])
+    }
+ }
