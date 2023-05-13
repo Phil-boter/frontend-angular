@@ -1,0 +1,162 @@
+
+body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+}
+
+.image {
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .image > img {
+    position: absolute;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 200px);
+    object-fit: cover;
+  }
+
+.container {
+    z-index: 99;
+    /* hide fixed overflow contents */
+    clip: rect(0, auto, auto, 0);
+
+    /* does not work if overflow = visible */
+    overflow: visible;
+
+    /* only works with absolute positioning */
+    position: relative;
+
+    /* Make sure containers are full-width and height */
+    height: 100vh;
+    left: 0;
+    width: 100%;
+    /* safari hack */
+    /* -webkit-mask-image: -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%); */
+    background-repeat: no-repeat;
+    background-image: url(../../../../assets/milkMed.jpg);
+    background-size: 100% auto;
+    background-position: center;
+}
+
+.container .container_solid {
+    background: black !important;
+    /* position this container at the top of its parent element */
+    top: 0;
+}
+
+.title_wrapper {
+    position: fixed;
+    display: block;
+    margin: auto;
+    width: 100%;
+    /* center the text wrapper vertically */
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.title_wrapper h1 {
+    display: block;
+    text-align: center;
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+}
+
+.container_solid .title_wrapper h1 {
+    /* the text background */
+    
+
+    /* clip the text is possible */
+    -webkit-text-fill-color: black;
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* fallback text color */
+    color: black;
+}
+
+.container_image {
+    /* Grab a free image from unsplash */
+    /* position the second container below the first container */
+    -webkit-text-fill-color: transparent;
+    top: 100vh;
+    object-fit: cover;
+}
+.container_image h1 {
+    -webkit-text-fill-color: black;
+}
+
+@media only screen and (max-width: 650px) {
+    .container_image {
+        /* Grab a free image from unsplash */
+        /* position the second container below the first container */
+        background-image: url(../../../../assets/milkMed.jpg);
+        object-fit: cover;
+        min-height: 100vh !important;
+    }
+    .main-section {
+        min-height: 100vh;
+    }
+}
+@media only screen and (orientation: portrait) {
+    .container_image {
+        /* Grab a free image from unsplash */
+        /* position the second container below the first container  */
+         background-image: url(../../../../assets/milkyPortrait.jpg);
+        object-fit: cover;
+        min-height: 100vh !important;
+    }
+    .main-section {
+        margin: auto;
+    }
+}
+
+
+
+
+
+#content{
+    overflow: visible;
+    text-align: center;
+    font-size: 1.5rem;
+}
+#container{
+    width: 100%;
+}
+
+#square{
+    position: fixed;
+    z-index: -1;
+    top: 0px; 
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}
+
+#rectangle{
+    position: fixed;
+    z-index: -1;
+    bottom: 0px; 
+    left: 50px;
+    width: 200px;
+    height: 100px;
+    background-color: red;
+}
+
+#circle{
+    position: fixed;
+    z-index: -1;
+    bottom: 0px; 
+    right: 0px;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border-radius: 50px;
+}

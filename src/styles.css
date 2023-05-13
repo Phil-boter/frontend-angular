@@ -35,6 +35,10 @@ body, html {
     margin: 0;
     padding: 0;
 }
+.scroll {
+    height: 100vh;
+    overflow: scroll !important;
+}
 
 :root {
     --var-color_pink: rgb(255, 94, 174);
@@ -96,6 +100,20 @@ ion-modal {
 
 .no-text-decoration {
     text-decoration: none;
+}
+
+.flex-container-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.jusify-center-all {
+    justify-content: center;
+    align-items: center;
+}
+
+.no-list-style {
+    list-style: none;
 }
 /* ______________________________     TOASTR-SECTION  START UNTIL LINE 213 __________________________________________________________ */
 
