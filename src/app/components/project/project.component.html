@@ -1,4 +1,35 @@
-    <h2 class="animated-h2" style="margin: 2rem;" (click)="showProject = !showProject">
+<ion-card color="dark"
+    @fade>
+    <ion-img class="project-header-image" src="../../../assets/milkMed.jpg"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{ project.titleOne }} <span *ngIf="project.titleTwo">{{ project.titleTwo }}</span></ion-card-title>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+        <ion-accordion-group>
+        <ion-accordion value="first">
+            <ion-item slot="header">
+              <ion-label *ngIf="isGerman">Erfahre mehr</ion-label>
+              <ion-label *ngIf="!isGerman">Explore more</ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+                <div *ngIf="isGerman">       
+                    <p>{{ project.germanDescription }}</p>
+                    <p>{{ project.germanUsedTechnology }}</p>
+                </div>
+                <div *ngIf="!isGerman">       
+                    <p>{{ project.englishDescription }}</p>
+                    <p>{{ project.englishUsedTechnology }}</p>
+                </div>
+            </div>
+        </ion-accordion>
+    </ion-accordion-group>
+  </ion-card-content>
+  </ion-card>
+
+
+
+<!-- <h2 class="animated-h2" style="margin: 2rem;" (click)="showProject = !showProject">
         <span id="animated-span">
             {{ project.titleOne }}
         </span>
@@ -14,4 +45,4 @@
             <p>{{ project.englishDescription }}</p>
             <p>{{ project.englishUsedTechnology }}</p>
         </div>
-    </div>
+    </div> -->

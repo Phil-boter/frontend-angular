@@ -1,21 +1,57 @@
-import { Directive, Input, ElementRef, HostListener } from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/core';
+import { DomController } from '@ionic/angular';
 
 @Directive({
-  selector: '[appParallax]'
+	selector: '[parallaxContent]',
+	host: {
+		'(ionScroll)': 'onContentScroll($event)'
+	}
 })
+export class ParallaxDirective implements AfterViewInit {
 
-export class ParallaxDirective {
+	@Input('parallaxContent')
+  imagePath!: string;
+	@Input('parallaxHeight')
+  parallaxHeight!: number;
 
-  @Input('ratio') parallaxRatio : number = 1
-  initialTop : number = 0
+	private headerHeight!: number;
+	private header!: HTMLDivElement;
+  private mainContent!: HTMLDivElement;
 
-  constructor(private eleRef : ElementRef) {
-    this.initialTop = this.eleRef.nativeElement.getBoundingClientRect().top
+	constructor(
+    private element: ElementRef, private renderer: Renderer2, private domCtrl: DomController
+  ) {}
+
+	ngAfterViewInit(){
+		this.headerHeight = this.parallaxHeight;
+    this.mainContent = this.element.nativeElement.querySelector('.main-content');
+		this.domCtrl.write(() => {
+			this.header = this.renderer.createElement('div');
+			this.renderer.insertBefore(this.element.nativeElement, this.header, this.element.nativeElement.firstChild);
+			this.renderer.setStyle(this.header, 'background-image', 'url(' + this.imagePath + ')');
+			this.renderer.setStyle(this.header, 'height', this.headerHeight + 'px');
+			this.renderer.setStyle(this.header, 'background-size', 'cover');
+		});
   }
 
-  @HostListener("window:scroll", ["$event"])
-  onWindowScroll() {
-    this.eleRef.nativeElement.style.top = (this.initialTop - (window.scrollY * this.parallaxRatio)) + 'px'
-  }
-
+	onContentScroll(ev: { detail: { scrollTop: number; }; }){
+	    this.domCtrl.read(() => {
+	      let translateAmt: string | number, scaleAmt: string | number;
+	      // Already scrolled past the point at which the header image is visible
+	      if(ev.detail.scrollTop > this.parallaxHeight){
+	        return;
+	      }
+	      if(ev.detail.scrollTop >= 0){
+	          translateAmt = -(ev.detail.scrollTop / 2);
+	          scaleAmt = 1;
+	      } else {
+	          translateAmt = 0;
+	          scaleAmt = -ev.detail.scrollTop / this.headerHeight + 1;
+	      }
+	      this.domCtrl.write(() => {
+	        this.renderer.setStyle(this.header, 'transform', 'translate3d(0,'+translateAmt+'px,0) scale('+scaleAmt+','+scaleAmt+')');
+	        this.renderer.setStyle(this.mainContent, 'transform', 'translate3d(0, '+(-ev.detail.scrollTop) + 'px, 0');
+	      });
+	    });
+	}
 }

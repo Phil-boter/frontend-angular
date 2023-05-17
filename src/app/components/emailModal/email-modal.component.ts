@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-    FormGroup,
-    FormBuilder,
-    FormControl,
+    UntypedFormGroup,
+    UntypedFormBuilder,
+    UntypedFormControl,
     Validators,
     NgForm,
 } from '@angular/forms';
@@ -17,10 +17,10 @@ import { ToastService } from 'src/app/services/toastService/toast.service';
     styleUrls: ['./email-modal.component.css'],
 })
 export class EmailModalComponent implements OnInit {
-    public FormData!: FormGroup;
+    public FormData!: UntypedFormGroup;
     public isLoading: boolean = false;
     constructor(
-        private builder: FormBuilder,
+        private builder: UntypedFormBuilder,
         private emailService: EmailService,
         private modalCtrl: ModalController,
         private toastService: ToastService
@@ -32,9 +32,9 @@ export class EmailModalComponent implements OnInit {
 
     private createFormData() {
         this.FormData = this.builder.group({
-            from: new FormControl('', [Validators.required]),
-            subject: new FormControl('', [Validators.required]),
-            text: new FormControl('', [Validators.required]),
+            from: new UntypedFormControl('', [Validators.required]),
+            subject: new UntypedFormControl('', [Validators.required]),
+            text: new UntypedFormControl('', [Validators.required]),
             created_at: Date.now(),
         });
         console.log('form', this.FormData.valid);

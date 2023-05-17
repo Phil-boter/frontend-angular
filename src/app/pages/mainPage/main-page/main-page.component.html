@@ -1,43 +1,19 @@
-<!-- First container -->
-
-<div id="container">
-  <div id="content">
-    <div style="width: 80%; margin-left: auto; margin-right: auto;">
-      Lots of placeholder text here so we ample vertical scroll to play with....
-    </div>
+<ion-content 
+  [scrollEvents]="true"
+  parallaxContent="../../../assets/milkMed.jpg"
+  [parallaxHeight]="500">
+  <div class="main-content">
+    <div *ngIf="projects$ | async as projects">
+      <ul 
+        class="no-list-style justify-center-all no-padding no-margin"
+        [ngClass]="isMobile ? 'flex-container-col': 'flex-container-row'"
+        *ngIf="!isLoading">
+          <li *ngFor="let project of projects" class="project-card">
+            <app-project-component 
+            [project]="project"          
+            [isGerman]="isGerman"></app-project-component>
+          </li>
+        </ul>
+     </div>
   </div>
-</div>
-
-<!-- our parallax stuff -->
-<!-- <div appParallax [ratio]="-0.2" id="square"></div>
-<div appParallax [ratio]="0.5" id="circle"></div>
-<div appParallax [ratio]="0.9" id="rectangle"></div> -->
-
-<div class="container">
-    <div class="container_solid">
-        <div class="title_wrapper">
-            <h1 class="scrollHeader">Philipp Dawid</h1>
-        </div>
-    </div>
-    
-    <!-- Second container -->
-    <div class="container_image" aria-hidden="true">
-        <div class="title_wrapper">
-            <h1 class="scrollPortfolio">
-                Junior&nbsp;&nbsp;Full stack&nbsp;&nbsp;Web
-                Developer
-            </h1>
-        </div>
-    </div>
-</div>
-<div *ngIf="projects$ | async as projects">
-    <ul 
-      class="no-list-style"
-      *ngIf="!isLoading">
-        <li *ngFor="let project of projects"  class="item flex-container-col">
-          <app-project-component 
-          [project]="project"          
-          [isGerman]="isGerman"></app-project-component>
-        </li>
-      </ul>
-</div>
+</ion-content>

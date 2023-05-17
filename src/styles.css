@@ -107,6 +107,11 @@ ion-modal {
     flex-direction: column;
 }
 
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+}
+
 .jusify-center-all {
     justify-content: center;
     align-items: center;
@@ -114,6 +119,19 @@ ion-modal {
 
 .no-list-style {
     list-style: none;
+}
+
+.no-padding {
+    padding: 0;
+    padding-inline-start: 0;
+}
+.no-margin {
+    margin: 0;
+}
+
+.project-card {
+    width:100%;
+    
 }
 /* ______________________________     TOASTR-SECTION  START UNTIL LINE 213 __________________________________________________________ */
 

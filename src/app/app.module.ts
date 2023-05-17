@@ -18,6 +18,7 @@ import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/sc
 import { EmailModalComponent } from './components/emailModal/email-modal.component';
 import { HeadlineComponent } from './components/headline/headline/headline.component';
 import { MainPageComponent } from './pages/mainPage/main-page/main-page.component';
+import { ParallaxDirective } from './directives/parallax.directive';
 
 @NgModule({
     declarations: [
@@ -29,6 +30,7 @@ import { MainPageComponent } from './pages/mainPage/main-page/main-page.componen
         EmailModalComponent,
         HeadlineComponent,
         MainPageComponent,
+        ParallaxDirective
     ],
     imports: [
         BrowserModule,
