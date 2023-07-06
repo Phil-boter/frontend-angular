@@ -3,7 +3,15 @@
     <ion-img class="project-header-image" src="../../../assets/milkMed.jpg"></ion-img>
     <ion-card-header>
       <ion-card-title>{{ project.titleOne }} <span *ngIf="project.titleTwo">{{ project.titleTwo }}</span></ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-subtitle>
+        <div class="badge-container">
+            <div *ngFor="let singleBadge of project.badge">
+                <ion-badge color={{singleBadge[2]}} class="jusify-center-all flex-container-col">
+                    <ion-icon name={{singleBadge[1]}} color="dark" title={{singleBadge[0]}} size="large">{{singleBadge[1]}}</ion-icon>
+                </ion-badge>
+            </div>
+        </div>
+      </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
         <ion-accordion-group>
@@ -12,7 +20,7 @@
               <ion-label *ngIf="isGerman">Erfahre mehr</ion-label>
               <ion-label *ngIf="!isGerman">Explore more</ion-label>
             </ion-item>
-            <div class="ion-padding" slot="content">
+            <div slot="content">
                 <div *ngIf="isGerman">       
                     <p>{{ project.germanDescription }}</p>
                     <p>{{ project.germanUsedTechnology }}</p>
@@ -21,6 +29,7 @@
                     <p>{{ project.englishDescription }}</p>
                     <p>{{ project.englishUsedTechnology }}</p>
                 </div>
+           
             </div>
         </ion-accordion>
     </ion-accordion-group>

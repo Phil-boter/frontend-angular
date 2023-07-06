@@ -13,6 +13,7 @@ export class ProjectModel {
     public link: string;
     public host: string;
     public created_at: Date;
+    public badge;
 
     constructor(
         id: number,
@@ -26,7 +27,8 @@ export class ProjectModel {
         images: [],
         link: string,
         host: string,
-        created_at: Date
+        created_at: Date,
+        badge: [],
     ) {
         this.id = id;
         this.title = title;
@@ -40,6 +42,7 @@ export class ProjectModel {
         this.link = link;
         this.host = host;
         this.created_at = created_at;
+        this.badge = badge;
     }
 
     public static createProject(project: Project) {
@@ -55,7 +58,8 @@ export class ProjectModel {
             project.images,
             project.link,
             project.host,
-            project.created_at
+            project.created_at,
+            project.badge
         );
     }
 
