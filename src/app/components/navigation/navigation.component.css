@@ -32,7 +32,7 @@
 
 ion-fab-button {
     --box-shadow: 0px 3px 5px 0px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15);
-    --color: white;
+    --color:  var(--var-color_white)e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,7 +116,7 @@ ion-fab-button {
 .navigation-links-container a {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
-    color: black;
+    color: var(--var-color_white);
     font-size: 1.5rem;
     text-transform: capitalize;
     width: 6rem;
@@ -131,16 +131,18 @@ ion-fab-button {
     justify-content: center;
     align-items: center;
 }
-
 .navigation-links-container a:hover {
+    color: var(--var-color_black)
+}
+/* .navigation-links-container a:hover {
     width: 6.2rem;
     height: 2.2rem;
     box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
     -webkit-box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
     -moz-box-shadow: 5px 5px 14px 5px rgba(0, 0, 0, 0.8);
-}
+} */
 
-.desktop1 {
+/* .desktop1 {
     background-color: var(--var-color_pink);
 }
 .desktop1:hover {
@@ -161,4 +163,4 @@ ion-fab-button {
 
 .desktop5 {
     background: salmon;
-}
+} */

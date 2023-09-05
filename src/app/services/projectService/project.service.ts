@@ -17,8 +17,8 @@ import { LanguageService } from '../languageService/language.service';
 export class ProjectService {
     public projects: ProjectModel[] = [];
     public project!: ProjectModel;
-    //private readonly baseURL: string = 'http://localhost:3500';
-    private readonly baseURL: string = environment.API_URL;
+    private readonly baseURL: string = 'http://localhost:3500';
+    //private readonly baseURL: string = environment.API_URL;
 
     constructor(
         private http: HttpClient,
