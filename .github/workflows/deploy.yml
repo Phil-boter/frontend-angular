@@ -1,6 +1,30 @@
 # This is a basic workflow to help you get started with Actions
 
+name: Go Build
 
+<<<<<<< HEAD
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  build:    
+		check-bats-version:
+    runs-on:  [self-hosted, linux, ARM64]
+
+    - name: Set up Go 1.x
+      uses: actions/checkout@v3
+      uses: actions/setup-node@v3
+      with:
+        node-version: [ 16.x ]
+
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Run Build
+      run: |
+=======
 name: [ deploy ]
 on:
   push:
@@ -15,15 +39,11 @@ jobs:
           node-version: [ 16.x ]
       - name: "Install & build"
         run: 
+>>>>>>> origin/master
           npm i
           npm run build
-          # mv public/index.html public/index.nginx-debian.html
 
-
-
-
-
-     - name: "Push to server"
+    - name: "Push to server"
         uses: appleboy/scp-action@master
 			  with:
 			    HOST: ${{ secrets.HOST }}

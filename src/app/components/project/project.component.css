@@ -5,3 +5,41 @@
     justify-content: center;
     align-items: center;
 }
+.project-header-image {
+    max-width: 100%;
+    max-height: 8rem;
+    object-fit: cover;
+}
+
+.badge-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+ion-card-content {
+  display: unset;
+}
+
+ion-accordion {
+    margin: 0 auto;
+  }
+  
+  ion-accordion.accordion-expanding,
+  ion-accordion.accordion-expanded {
+     width: calc(100% - 32px);
+  }
+  
+  ion-accordion.accordion-collapsing ion-item[slot='header'],
+  ion-accordion.accordion-collapsed ion-item[slot='header'] {
+    --background: red;
+    --color: var(--ion-color-light-contrast);
+  }
+  
+  ion-accordion.accordion-expanding ion-item[slot='header'],
+  ion-accordion.accordion-expanded ion-item[slot='header'] {
+    --background: blue;
+    --color: var(--ion-color-primary-contrast);
+  }

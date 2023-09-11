@@ -17,6 +17,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ScrollToTopButtonComponent } from './components/scroll-to-top-button/scroll-to-top-button/scroll-to-top-button.component';
 import { EmailModalComponent } from './components/emailModal/email-modal.component';
 import { HeadlineComponent } from './components/headline/headline/headline.component';
+import { MainPageComponent } from './pages/mainPage/main-page/main-page.component';
+import { ParallaxDirective } from './directives/parallax.directive';
 
 @NgModule({
     declarations: [
@@ -26,7 +28,9 @@ import { HeadlineComponent } from './components/headline/headline/headline.compo
         ProjectPageComponent,
         ScrollToTopButtonComponent,
         EmailModalComponent,
-        HeadlineComponent
+        HeadlineComponent,
+        MainPageComponent,
+        ParallaxDirective
     ],
     imports: [
         BrowserModule,
@@ -42,7 +46,7 @@ import { HeadlineComponent } from './components/headline/headline/headline.compo
         }),
         IonicModule.forRoot(),
         MatProgressBarModule,
-        ReactiveFormsModule,
+        ReactiveFormsModule
     ],
     providers: [],
     bootstrap: [AppComponent],

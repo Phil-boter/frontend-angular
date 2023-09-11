@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { EmailModalComponent } from 'src/app/components/emailModal/email-modal.component';
 import { EmailService } from '../emailService/email.service';
@@ -8,9 +8,9 @@ import { EmailService } from '../emailService/email.service';
     providedIn: 'root',
 })
 export class ModalService {
-    public FormData!: FormGroup;
+    public FormData!: UntypedFormGroup;
     constructor(
-        private builder: FormBuilder,
+        private builder: UntypedFormBuilder,
         private emailService: EmailService,
         private modalCtrl: ModalController
     ) {}

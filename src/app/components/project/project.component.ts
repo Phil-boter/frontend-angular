@@ -58,7 +58,9 @@ export class ProjectComponent implements OnInit, AfterViewChecked {
 
     ngOnInit(): void {}
 
-    ngAfterViewChecked() {}
+    ngAfterViewChecked() {
+        this.getbadgeTitle()
+    }
 
     ngOnChanges(changes: SimpleChanges) {}
     
@@ -73,5 +75,9 @@ export class ProjectComponent implements OnInit, AfterViewChecked {
 
     public set loading(value) {
         this.isLoading = value;
+    }
+
+    public getbadgeTitle() {
+        console.log("tite", this.project.badge)
     }
 }

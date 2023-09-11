@@ -1,0 +1,19 @@
+<ion-content 
+  [scrollEvents]="true"
+  parallaxContent="../../../assets/milkMed.jpg"
+  [parallaxHeight]="500">
+  <div class="main-content">
+    <div *ngIf="projects$ | async as projects">
+      <ul 
+        class="no-list-style justify-center-all no-padding no-margin"
+        [ngClass]="isMobile ? 'flex-container-col': 'flex-container-row'"
+        *ngIf="!isLoading">
+          <li *ngFor="let project of projects" class="project-card">
+            <app-project-component 
+            [project]="project"          
+            [isGerman]="isGerman"></app-project-component>
+          </li>
+        </ul>
+     </div>
+  </div>
+</ion-content>

@@ -11,4 +11,5 @@ export interface Project {
     host: string;
     link: string;
     created_at: Date;
+    badge: [];
 }

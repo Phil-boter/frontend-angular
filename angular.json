@@ -172,8 +172,7 @@
       }
     }
   },
-  "defaultProject": "frontend-angular",
   "cli": {
-    "analytics": "23d3c64d-d43c-4f67-8437-df5182ea5f6c"
+    "analytics": false
   }
 }

@@ -1,8 +1,8 @@
 import { Email } from '../interfaces/email';
 import {
-    FormGroup,
-    FormBuilder,
-    FormControl,
+    UntypedFormGroup,
+    UntypedFormBuilder,
+    UntypedFormControl,
     Validators,
     NgForm,
 } from '@angular/forms';
@@ -13,14 +13,14 @@ export class EmailModel {
     public text: string;
     public created_at: Date;
 
-    public FormData!: FormGroup;
+    public FormData!: UntypedFormGroup;
 
     constructor(
         from: string,
         subject: string,
         text: string,
         created_at: Date,
-        private builder: FormBuilder
+        private builder: UntypedFormBuilder
     ) {
         this.from = from;
         this.subject = subject;
@@ -28,12 +28,12 @@ export class EmailModel {
         this.created_at = created_at;
     }
 
-    public create(builder: FormBuilder) {
+    public create(builder: UntypedFormBuilder) {
         console.log('create');
         this.FormData = builder.group({
-            from: new FormControl('', [Validators.required]),
-            subject: new FormControl('', [Validators.required]),
-            text: new FormControl('', [Validators.required]),
+            from: new UntypedFormControl('', [Validators.required]),
+            subject: new UntypedFormControl('', [Validators.required]),
+            text: new UntypedFormControl('', [Validators.required]),
             created_at: Date.now(),
         });
         return this.FormData;
