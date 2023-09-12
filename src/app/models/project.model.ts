@@ -147,4 +147,12 @@ export class ProjectModel {
     public get projectBadges() {
         return this.badge
     }
+    public set projectBadges(value: []) {
+        this.badge = value;
+    }
+
+    public contstructMainTitle() {
+        if(!this.titleTwo) return this.titleOne;
+        return this.titleOne.concat(' ').concat(this.titleTwo);
+    }
 }
