@@ -13,7 +13,7 @@ export class ProjectModel {
     public link: string;
     public host: string;
     public created_at: Date;
-    public badge;
+    public badge: [];
 
     constructor(
         id: number,
@@ -143,5 +143,8 @@ export class ProjectModel {
     }
     public set creationDate(value: Date) {
         this.created_at = value;
+    }
+    public get projectBadges() {
+        return this.badge
     }
 }

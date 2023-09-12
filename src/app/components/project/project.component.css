@@ -18,6 +18,10 @@
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.badge {
+  border-radius: 50%;
+  padding: 0.5rem;
+}
 
 ion-card-content {
   display: unset;

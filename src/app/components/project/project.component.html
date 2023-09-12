@@ -5,9 +5,9 @@
       <ion-card-title>{{ project.titleOne }} <span *ngIf="project.titleTwo">{{ project.titleTwo }}</span></ion-card-title>
       <ion-card-subtitle>
         <div class="badge-container">
-            <div *ngFor="let singleBadge of project.badge">
-                <ion-badge color={{singleBadge[2]}} class="jusify-center-all flex-container-col">
-                    <ion-icon name={{singleBadge[1]}} color="dark" title={{singleBadge[0]}} size="large">{{singleBadge[1]}}</ion-icon>
+             <div *ngFor="let singleBadge of project.projectBadges">
+                <ion-badge color={{getBadgeColor(singleBadge)}} class="jusify-center-all flex-container-col badge">
+                    <ion-icon name={{getBadgeLogo(singleBadge)}} color="dark" title={{getBadgeLogo(singleBadge)}} size="large">{{getBadgeLogo(singleBadge)}}</ion-icon>
                 </ion-badge>
             </div>
         </div>
