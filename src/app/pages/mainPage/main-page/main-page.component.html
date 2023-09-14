@@ -2,18 +2,21 @@
   [scrollEvents]="true"
   parallaxContent="../../../assets/milkMed.jpg"
   [parallaxHeight]="500">
-  <div class="main-content">
-    <div *ngIf="projects$ | async as projects">
+    <div *ngIf="projects$ | async as projects"  class="hex-grid-container">
       <ul 
-        class="no-list-style justify-center-all no-padding no-margin"
-        [ngClass]="isMobile ? 'flex-container-col': 'flex-container-row'"
+        id="hexGrid"
         *ngIf="!isLoading">
-          <li *ngFor="let project of projects" class="project-card">
-            <app-project-component 
-            [project]="project"          
-            [isGerman]="isGerman"></app-project-component>
+          <li *ngFor="let project of projects" class="hex">
+            <div class="hexIn">
+            <div class="hexLink" href="#">
+              <img src={{project.mainImageOfProject}} alt="" />
+              <h1>{{ project.contstructMainTitle() }}
+              </h1> 
+                <p *ngIf="isGerman">{{ project.textShortener(0,80, project.germanDescription, true) }}</p>    
+                <p *ngIf="!isGerman">{{ project.textShortener(0,80, project.englishDescription, true) }}</p>
+            </div>
+            </div>
           </li>
         </ul>
      </div>
-  </div>
 </ion-content>

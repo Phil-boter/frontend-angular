@@ -1,6 +1,6 @@
-<ion-card color="dark"
+ <ion-card color="dark"
     @fade>
-    <ion-img class="project-header-image" src="../../../assets/milkMed.jpg"></ion-img>
+     <ion-img class="project-header-image" src="../../../assets/milkMed.jpg"></ion-img>
     <ion-card-header>
       <ion-card-title>{{ project.titleOne }} <span *ngIf="project.titleTwo">{{ project.titleTwo }}</span></ion-card-title>
       <ion-card-subtitle>
@@ -33,25 +33,8 @@
             </div>
         </ion-accordion>
     </ion-accordion-group>
-  </ion-card-content>
+  </ion-card-content> 
   </ion-card>
 
 
 
-<!-- <h2 class="animated-h2" style="margin: 2rem;" (click)="showProject = !showProject">
-        <span id="animated-span">
-            {{ project.titleOne }}
-        </span>
-    </h2>
-    <div  
-        *ngIf="showProject"
-        @fade>
-        <div *ngIf="isGerman">       
-            <p>{{ project.germanDescription }}</p>
-            <p>{{ project.germanUsedTechnology }}</p>
-        </div>
-        <div *ngIf="!isGerman">       
-            <p>{{ project.englishDescription }}</p>
-            <p>{{ project.englishUsedTechnology }}</p>
-        </div>
-    </div> -->
