@@ -60,6 +60,7 @@ ion-content {
   
   /*** HEX CONTENT **********************************************************************/
   .hex img {
+    object-fit: cover;
     left: -100%;
     right: -100%;
     width: auto;
@@ -73,6 +74,7 @@ ion-content {
   .hex h1, .hex p {
     width: 100%;
     padding: 5%;
+    box-shadow: 0 -7px 6px -3px rgba(0, 0, 0, 0.3), 0 7px 5px -3px rgba(0, 0, 0, 0.3);
     box-sizing:border-box;
     background-color: rgba(0, 0, 0, 0.3);
     font-weight: 300;

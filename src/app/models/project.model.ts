@@ -151,8 +151,13 @@ export class ProjectModel {
         this.badge = value;
     }
 
-    public contstructMainTitle() {
+    public contstructMainTitle():string {
         if(!this.titleTwo) return this.titleOne;
         return this.titleOne.concat(' ').concat(this.titleTwo);
+    }
+
+    public textShortener(start: number, end: number, text: string, ellipse: boolean): string {
+        if (!ellipse) return text.slice(start, end);
+        return text.slice(start, end).concat('...');
     }
 }

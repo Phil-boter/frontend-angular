@@ -9,15 +9,14 @@
           <li *ngFor="let project of projects" class="hex">
             <div class="hexIn">
             <div class="hexLink" href="#">
-              <img src="../../../../assets/milkMed.jpg" alt="" />
+              <img src={{project.mainImageOfProject}} alt="" />
               <h1>{{ project.contstructMainTitle() }}
               </h1> 
-                <p *ngIf="isGerman">{{ project.germanDescription }}</p>    
-                <p *ngIf="!isGerman">{{ project.englishDescription }}</p>
+                <p *ngIf="isGerman">{{ project.textShortener(0,80, project.germanDescription, true) }}</p>    
+                <p *ngIf="!isGerman">{{ project.textShortener(0,80, project.englishDescription, true) }}</p>
             </div>
             </div>
           </li>
         </ul>
      </div>
-
 </ion-content>
