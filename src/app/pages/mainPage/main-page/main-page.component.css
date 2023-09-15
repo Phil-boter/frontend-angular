@@ -13,7 +13,7 @@ ion-content {
     flex-wrap: wrap;
     width: 90%;
     margin: 0 auto;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'Raleway', sans-serif;
     font-size: 15px;
     list-style-type: none;
