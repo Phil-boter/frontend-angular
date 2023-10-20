@@ -17,8 +17,8 @@ import { LanguageService } from '../languageService/language.service';
 export class ProjectService {
     public projects: ProjectModel[] = [];
     public project!: ProjectModel;
-    //private readonly baseURL: string = 'http://localhost:3500';
-    private readonly baseURL: string = environment.API_URL;
+    private readonly baseURL: string = 'http://localhost:8080';
+    //private readonly baseURL: string = environment.API_URL;
 
     constructor(
         private http: HttpClient,
@@ -27,11 +27,12 @@ export class ProjectService {
     ) {}
 
     // project section
-    public projects$ = this.http.get<{ rows: ProjectModel[] }>(`${this.baseURL}/v1/projects/allProjects`)
+    public projects$ = this.http.get<ProjectModel[]>(`${this.baseURL}/api/v1/allProjects`)
     .pipe(
-        map((data) => (
-            data.rows.map((item: ProjectModel) => (
-                ProjectModel.createProject(item))
+        map((data) :any => (
+            data.map((item: ProjectModel) => {
+                return ProjectModel.createProject(item);
+            }
         ))
         ),
         catchError(err => {

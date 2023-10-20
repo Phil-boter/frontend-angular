@@ -1,18 +1,19 @@
-<ion-content 
+<ion-content
   [scrollEvents]="true"
   parallaxContent="../../../assets/milkMed.jpg"
   [parallaxHeight]="500">
-    <div *ngIf="projects$ | async as projects"  class="hex-grid-container">
-      <ul 
+    <diV *ngIf="isLoading">Loading</diV>
+    <div class="hex-grid-container" *ngIf="!loading">
+      <ul
         id="hexGrid"
-        *ngIf="!isLoading">
+        >
           <li *ngFor="let project of projects" class="hex">
             <div class="hexIn">
             <div class="hexLink">
               <img src={{project.mainImageOfProject}} alt="" />
               <h1>{{ project.contstructMainTitle() }}
-              </h1> 
-                <p *ngIf="isGerman">{{ project.textShortener(0,80, project.germanDescription, true) }}</p>    
+              </h1>
+                <p *ngIf="isGerman">{{ project.textShortener(0,80, project.germanDescription, true) }}</p>
                 <p *ngIf="!isGerman">{{ project.textShortener(0,80, project.englishDescription, true) }}</p>
             </div>
             </div>

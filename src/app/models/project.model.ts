@@ -74,7 +74,7 @@ export class ProjectModel {
         this.title = value;
     }
 
-    
+
     public get titleTwo() {
         return this.title_second;
     }
