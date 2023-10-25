@@ -151,7 +151,7 @@ export class ProjectModel {
         this.badge = value;
     }
 
-    public contstructMainTitle():string {
+    public constructMainTitle():string {
         if(!this.titleTwo) return this.titleOne;
         return this.titleOne.concat(' ').concat(this.titleTwo);
     }

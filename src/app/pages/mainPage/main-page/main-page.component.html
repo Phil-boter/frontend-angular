@@ -3,7 +3,7 @@
   parallaxContent="../../../assets/milkMed.jpg"
   [parallaxHeight]="500">
     <diV *ngIf="isLoading">Loading</diV>
-    <div class="hex-grid-container" *ngIf="!loading">
+    <div class="hex-grid-container" *ngIf="!isLoading">
       <ul
         id="hexGrid"
         >
@@ -11,7 +11,7 @@
             <div class="hexIn">
             <div class="hexLink">
               <img src={{project.mainImageOfProject}} alt="" />
-              <h1>{{ project.contstructMainTitle() }}
+              <h1>{{ project.constructMainTitle() }}
               </h1>
                 <p *ngIf="isGerman">{{ project.textShortener(0,80, project.germanDescription, true) }}</p>
                 <p *ngIf="!isGerman">{{ project.textShortener(0,80, project.englishDescription, true) }}</p>

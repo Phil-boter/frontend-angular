@@ -16,22 +16,10 @@ export class MainPageComponent implements OnInit {
   public isGerman: boolean = this.languageService.languageInBrowser();
   public showProjects = true
   public toggleFlag = false;
-  
+  public projects!: ProjectModel[];
+
   public isMobile: boolean = false;
   public resizeSubscription: Subscription = new Subscription();
-
-  public projects$ = this.projectService.projects$
-      .pipe(
-          tap(() => this.isLoading = true),   
-          map((project: ProjectModel[]) => project),
-          tap(() => this.isLoading = false),          
-      catchError(err => {
-             this.isLoading = false;
-             return EMPTY;
-          })
-      );
-
-  public items = this.projects$;
 
   constructor(
     private projectService: ProjectService,
@@ -41,6 +29,10 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.resizeSubscription.add;
+    this.projectService.projects$.subscribe((data:ProjectModel[]) => {
+        console.log(data);
+        this.projects = data;
+    })
 }
 ngDoCheck() {
     this.isMobile = this.resizeService.isMobile();
