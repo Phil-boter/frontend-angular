@@ -17,7 +17,7 @@ export class MainPageComponent implements OnInit {
   public showProjects = true
   public toggleFlag = false;
   public projects!: ProjectModel[];
-
+  
   public isMobile: boolean = false;
   public resizeSubscription: Subscription = new Subscription();
 
@@ -34,8 +34,8 @@ export class MainPageComponent implements OnInit {
         this.projects = data;
     })
 }
-ngDoCheck() {
-    this.isMobile = this.resizeService.isMobile();
-}
+  ngDoCheck() {
+      this.isMobile = this.resizeService.isMobile();
+  }
 
 }
